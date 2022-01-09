@@ -1,0 +1,32 @@
+{
+  "name": "ducks",
+  "version": "1.0.0",
+  "description": "Ducks in a Row - Journal/Organizer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node prove08/controllers/pr08.js",
+    "go": "nodemon prove08/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catteara/ducks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catteara/ducks/issues"
+  },
+  "homepage": "https://github.com/catteara/ducks#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^3.1.1",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.1.5"
+  }
+}
