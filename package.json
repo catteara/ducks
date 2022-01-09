@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node prove08/controllers/pr08.js",
-    "go": "nodemon prove08/app.js"
+    "start": "node index.js",
+    "go": "nodemon index.js"
   },
   "repository": {
     "type": "git",
