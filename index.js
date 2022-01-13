@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const expressLayouts = require('express-ejs-layouts');
 const dotenv = require('dotenv');
 dotenv.config();
+const methodOverride = require('method-override')
 
 const corsOptions = {
     origin: "https://ducks-in-a-row.herokuapp.com/", 
@@ -20,6 +21,8 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(cors(corsOptions));
+app.use(express.urlencoded({ extended: false}))
+app.use(methodOverride('_method'))
 
 // Set up views to be read with express-js
 app.set('view engine', 'ejs')
@@ -29,7 +32,10 @@ app.use(expressLayouts);
 
 // Import Necessary Routes
 const indexRoutes = require('./routes/index')
+const journalRoutes = require('./routes/journal')
 app.use('/', indexRoutes)
+app.use('/journal',journalRoutes)
+
 
 // Start the session
 // app.use(
@@ -41,7 +47,6 @@ app.use('/', indexRoutes)
 // );
 
 // app.use(flash());
-
 
 // Set up Databade
 const mongoose = require('mongoose');

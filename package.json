@@ -28,6 +28,9 @@
     "express": "^4.17.2",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
-    "mongoose": "^6.1.5"
+    "marked": "^4.0.9",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.1.5",
+    "slugify": "^1.6.5"
   }
 }
