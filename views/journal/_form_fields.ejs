@@ -1,0 +1,11 @@
+<div>
+    <label for="title">Title</label>
+    <input value="<%= journal.title %>" type="text" name="title" id="title" required></input>
+</div>
+<div>
+    <label for="text">Text</label>
+    <textarea name="text" id="text" required><%= journal.text %></textarea>
+</div>
+
+<a href="/journal">Cancel</a>
+<button type="submit">Save</button>

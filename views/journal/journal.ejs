@@ -1,0 +1,16 @@
+<h1>Journal Entries</h1>
+<a href='/journal/new'>New Entry</a>
+
+<% journal.forEach(journal => { %>
+    <div>
+        <h2><%= journal.title %></h2>
+        <h3><%= journal.date.toLocaleDateString() %></h3>
+        <p><%= journal.text.substring(0,50) %>...</p>
+        <a href="journal/<%= journal.id %>">Read More</a>
+        <a href="journal/edit/<%= journal.id %>">Edit</a>
+        <form action="/journal/<%= journal.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+            <input type="hidden" name="_method" value="DELETE">
+        </form>
+    </div>
+<% }) %>
