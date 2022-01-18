@@ -1,29 +1,40 @@
 const express = require('express')
-const Journal = require('./../models/journal')
+const Journal = require('../models/journal')
 const router = express.Router()
 
 // Gets Journal Main Page
 router.get('/', async (req, res) => {
     const journal = await Journal.find().sort({ date: 'desc'})
-    res.render('journal/journal', {journal: journal})
+    res.render('journal/journal', {
+        pageTitle: 'Journal',
+        journal: journal
+    })
 })
 
 //Gets New Entry Page
 router.get('/new', (req, res) => {
-    res.render('journal/new', {journal: new Journal() })
+    res.render('journal/new', {
+        pageTitle: 'New Entry',
+        journal: new Journal() })
 })
 
 //Get to Edit Entry Page
 router.get('/edit/:id', async (req, res) => {
     const journal = await Journal.findById(req.params.id)
-    res.render('journal/edit', {journal: journal })
+    res.render('journal/edit', {
+        pageTitle: 'Edit Entry',
+        journal: journal
+    })
 })
 
 //Gets Entry description page with Id
 router.get('/:id', async (req, res) => {
     const journal = await Journal.findById(req.params.id)
-    if (journal == null) res.redirect('/')
-    res.render('journal/entry', { journal: journal })
+    if (journal == null) res.redirect('/404')
+    res.render('journal/entry', {
+        pageTitle: journal.title,
+        journal: journal
+    })
 })
 
 //Returns New Entry Form on Submission
@@ -54,7 +65,10 @@ function saveAndRedirect(path) {
             journal = await journal.save()
             res.redirect(`/journal/${journal.id}`)
         } catch (e) {
-            res.render(`journal/${path}`, {journal: journal})
+            res.render(`journal/${path}`, {
+                pageTitle: `${path}`,
+                journal: journal
+            })
         }
     }
 }

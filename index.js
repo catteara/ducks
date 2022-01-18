@@ -31,11 +31,10 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts);
 
 // Import Necessary Routes
-const indexRoutes = require('./routes/index')
-const journalRoutes = require('./routes/journal')
-app.use('/', indexRoutes)
+const journalRoutes = require('./controllers/journal')
 app.use('/journal',journalRoutes)
-
+const indexRoutes = require('./controllers/index')
+app.use('/', indexRoutes)
 
 // Start the session
 // app.use(
