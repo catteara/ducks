@@ -21,7 +21,7 @@ router.get('/edit/:id', async (req, res) => {
 
 //Gets Entry description page with Id
 router.get('/:id', async (req, res) => {
-    const journal = await Journal.findOne({ id: req.params.id })
+    const journal = await Journal.findById(req.params.id)
     if (journal == null) res.redirect('/')
     res.render('journal/entry', { journal: journal })
 })

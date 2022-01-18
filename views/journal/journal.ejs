@@ -6,9 +6,9 @@
         <h2><%= journal.title %></h2>
         <h3><%= journal.date.toLocaleDateString() %></h3>
         <p><%= journal.text.substring(0,50) %>...</p>
-        <a href="journal/<%= journal.id %>">Read More</a>
-        <a href="journal/edit/<%= journal.id %>">Edit</a>
-        <form action="/journal/<%= journal.id %>?_method=DELETE" method="POST">
+        <a href="journal/<%= journal._id %>">Read More</a>
+        <a href="journal/edit/<%= journal._id %>">Edit</a>
+        <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete</button>
             <input type="hidden" name="_method" value="DELETE">
         </form>
