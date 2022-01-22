@@ -1,4 +1,7 @@
 <h1>Sign Up</h1>
+<% if (errorMessage) { %>
+    <div><%= errorMessage %></div>
+<% } %>
 <form action="/signup" method="POST">
     <div>
         <label for="fname">First Name</label>
