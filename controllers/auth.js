@@ -4,15 +4,28 @@ const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 
 router.get('/login', (req, res, next) => {
+    let message = req.flash('error')
+    if (message.length > 0) {
+        message = message[0]
+    } else {
+        message = null
+    }
     res.render('auth/login', {
         pageTitle: 'Login',
-        errorMessage: req.flash('error')
+        errorMessage: message
     });
 });
 
 router.get('/signup', (req, res, next) => {
+    let message = req.flash('error')
+    if (message.length > 0) {
+        message = message[0]
+    } else {
+        message = null
+    }
     res.render('auth/signup', {
-        pageTitle: 'Signup'
+        pageTitle: 'Signup',
+        errorMessage: message
     });
 });
 
@@ -22,7 +35,7 @@ router.post('/login', (req, res, next) => {
     User.findOne({email: email})
         .then(user => {
             if (!user) {
-                req.flash('error', 'Invalid Email or Password.')
+                req.flash('error', 'Invalid Email.')
                 return res.redirect('/login')
             }
             bcrypt
@@ -36,6 +49,7 @@ router.post('/login', (req, res, next) => {
                             res.redirect('/journal');
                         });
                     }
+                    req.flash('error', 'Invalid Password.')
                     res.redirect('/login')
                 })
                 .catch(err => {
@@ -58,7 +72,7 @@ router.post('/signup', (req, res, next) => {
         })
         .then(userDoc => {
             if (userDoc) {
-                //TODO: Change to error message? 
+                req.flash('error', 'Email already in use.')
                 return res.redirect('/signup');
             }
             return bcrypt

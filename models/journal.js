@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-const journalSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const journalSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -12,6 +14,11 @@ const journalSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     }
 })
 
