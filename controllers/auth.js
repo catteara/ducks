@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
+const { check, validationResult } = require('express-validator')
+
 
 router.get('/login', (req, res, next) => {
     let message = req.flash('error')
@@ -29,9 +31,16 @@ router.get('/signup', (req, res, next) => {
     });
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', check('email').isEmail().withMessage('Please enter a valid email'), (req, res, next) => {
     const email = req.body.email
     const password = req.body.password
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.render('auth/login', {
+            pageTitle: 'Login',
+            errorMessage: errors.array()[0].msg
+        });
+    }
     User.findOne({email: email})
         .then(user => {
             if (!user) {
@@ -60,12 +69,19 @@ router.post('/login', (req, res, next) => {
         .catch(err => console.log(err));
 });
 
-router.post('/signup', (req, res, next) => {
+router.post('/signup', [check('email').isEmail().withMessage('Please enter a valid email'), check('password', 'Please use a password with at least 8 characters').isLength({min: 8})], (req, res, next) => {
     const fname = req.body.fname;
     const lname = req.body.lname;
     const email = req.body.email;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.render('auth/signup', {
+            pageTitle: 'Signup',
+            errorMessage: errors.array()[0].msg
+        });
+    }
     //TODO: add validation
     User.findOne({
             email: email
