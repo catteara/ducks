@@ -14,17 +14,35 @@
         <p>Ducks in a Row</p>
       </div>
         <nav>
-          <ul class="navbar-nav d-flex justify-content-between nav-width">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+          <ul>
+            <li>
+              <a href="/">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/journal">Journal</a>
+            <% if (isAuthenticated) { %>
+              <li>
+                  <a href="/journal">Journal</a>
+                </li>
+              <li>
+                <a href="/todo">To-Do</a>
               </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/todo">To-Do</a>
-            </li>
+            <% } %>
           </ul>
+          <ul>
+            <% if (!isAuthenticated) { %>
+                <li class="main-header__item">
+                    <a href="/login">Login</a>
+                </li>
+                <li class="main-header__item">
+                    <a href="/signup">Signup</a>
+                </li>
+            <% } else { %>
+                <li class="main-header__item">
+                    <form action="/logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            <% } %>
+        </ul>
         </nav>
       </header>
     <main>

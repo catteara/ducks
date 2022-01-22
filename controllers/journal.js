@@ -1,60 +1,62 @@
 const express = require('express')
 const Journal = require('../models/journal')
 const router = express.Router()
+const isAuth = require('../middleware/is-auth')
 
 // Gets Journal Main Page
-router.get('/', async (req, res) => {
+router.get('/', isAuth, async (req, res) => {
     const journal = await Journal.find().sort({ date: 'desc'})
-    res.render('journal/journal', {
+    res.render('journal/journal',{
         pageTitle: 'Journal',
         journal: journal
     })
-})
+});
 
 //Gets New Entry Page
-router.get('/new', (req, res) => {
+router.get('/new', isAuth, (req, res) => {
     res.render('journal/new', {
         pageTitle: 'New Entry',
-        journal: new Journal() })
-})
+        journal: new Journal()
+    })
+});
 
 //Get to Edit Entry Page
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', isAuth, async (req, res) => {
     const journal = await Journal.findById(req.params.id)
     res.render('journal/edit', {
         pageTitle: 'Edit Entry',
         journal: journal
     })
-})
+});
 
 //Gets Entry description page with Id
-router.get('/:id', async (req, res) => {
+router.get('/:id', isAuth, async (req, res) => {
     const journal = await Journal.findById(req.params.id)
     if (journal == null) res.redirect('/404')
     res.render('journal/entry', {
         pageTitle: journal.title,
         journal: journal
     })
-})
+});
 
 //Returns New Entry Form on Submission
 router.post('/', async (req, res, next) => {
     req.journal = new Journal()
     next()
-}, saveAndRedirect('new'))
+}, saveAndRedirect('new'));
 
 //Edit entry page
 router.put('/:id', async (req, res, next) => {
     req.journal = await Journal.findById(req.params.id)
     next()
-}, saveAndRedirect('edit'))
+}, saveAndRedirect('edit'));
 
 
 //Delete Journal journal
 router.delete('/:id', async (req, res) => {
     await Journal.findByIdAndDelete(req.params.id)
     res.redirect('/journal')
-})
+});
 
 function saveAndRedirect(path) {
     return async (req, res) => {
@@ -71,6 +73,6 @@ function saveAndRedirect(path) {
             })
         }
     }
-}
+};
 
 module.exports = router;
