@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 const { check, validationResult } = require('express-validator')
+const user = require('../models/user')
 
 
 router.get('/login', (req, res, next) => {
@@ -11,10 +12,12 @@ router.get('/login', (req, res, next) => {
         message = message[0]
     } else {
         message = null
-    }
-    res.render('auth/login', {
+    }    res.render('auth/login', {
         pageTitle: 'Login',
-        errorMessage: message
+        errorMessage: message,
+        oldInput: {
+            email: ""
+        }
     });
 });
 
@@ -27,7 +30,13 @@ router.get('/signup', (req, res, next) => {
     }
     res.render('auth/signup', {
         pageTitle: 'Signup',
-        errorMessage: message
+        errorMessage: message,
+        oldInput: {
+            fname: "",
+            lname: "",
+            email: "",
+            password: ""
+        }
     });
 });
 
@@ -38,7 +47,10 @@ router.post('/login', check('email').isEmail().withMessage('Please enter a valid
     if (!errors.isEmpty()) {
         return res.render('auth/login', {
             pageTitle: 'Login',
-            errorMessage: errors.array()[0].msg
+            errorMessage: errors.array()[0].msg,
+            oldInput: {
+                email: email
+            }
         });
     }
     User.findOne({email: email})
@@ -58,8 +70,13 @@ router.post('/login', check('email').isEmail().withMessage('Please enter a valid
                             res.redirect('/journal');
                         });
                     }
-                    req.flash('error', 'Invalid Password.')
-                    res.redirect('/login')
+                    return res.render('auth/login', {
+                        pageTitle: 'Login',
+                        errorMessage: 'Invalid Password',
+                        oldInput: {
+                            email: email
+                        }
+                    });
                 })
                 .catch(err => {
                     console.log(err)
@@ -69,46 +86,60 @@ router.post('/login', check('email').isEmail().withMessage('Please enter a valid
         .catch(err => console.log(err));
 });
 
-router.post('/signup', [check('email').isEmail().withMessage('Please enter a valid email'), check('password', 'Please use a password with at least 8 characters').isLength({min: 8})], (req, res, next) => {
+router.post('/signup', 
+[check('email').isEmail().withMessage('Please enter a valid email').custom((value, { req }) => {
+    return User.findOne({
+        email: value
+    })
+    .then(userDoc => {
+        if (userDoc) {
+            return Promise.reject('Email is already in use, please choose a different one')
+        }
+    })
+}), 
+check('password').isLength({min: 8}).withMessage('Please use a password with at least 8 characters'), 
+check('confirmPassword').custom((value, { req }) => {
+    if(value !== req.body.password) {
+        throw new Error('Passwords have to match')
+    } 
+    return true
+}),
+], 
+(req, res, next) => {
     const fname = req.body.fname;
     const lname = req.body.lname;
     const email = req.body.email;
     const password = req.body.password;
-    const confirmPassword = req.body.confirmPassword;
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.render('auth/signup', {
             pageTitle: 'Signup',
-            errorMessage: errors.array()[0].msg
+            errorMessage: errors.array()[0].msg,
+            oldInput: {
+                fname: fname,
+                lname: lname,
+                email: email,
+                password: password
+            }
         });
     }
-    //TODO: add validation
-    User.findOne({
-            email: email
+    bcrypt
+        .hash(password, 12)
+        .then(hashedPassword => {
+            const user = new User({
+                fname: fname,
+                lname: lname,
+                email: email,
+                password: hashedPassword
+            });
+            return user.save();
         })
-        .then(userDoc => {
-            if (userDoc) {
-                req.flash('error', 'Email already in use.')
-                return res.redirect('/signup');
-            }
-            return bcrypt
-                .hash(password, 12)
-                .then(hashedPassword => {
-                    const user = new User({
-                        fname: fname,
-                        lname: lname,
-                        email: email,
-                        password: hashedPassword
-                    });
-                    return user.save();
-                })
-                .then(result => {
-                    res.redirect('/login');
-                });
+        .then(result => {
+            res.redirect('/login');
         })
         .catch(err => {
             console.log(err);
-        });
+        })
 });
 
 router.post('/logout', (req, res, next) => {
