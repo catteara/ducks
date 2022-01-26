@@ -1,0 +1,26 @@
+<h1>To-Do</h2>
+    <div class="todo">
+        <form action="" method="POST" class="todo-header">
+            <input type="text" name="content">
+            <button type="submit">&plus;</button>
+        </form>
+        <ul class="todo-list">
+            <% todo.forEach(details => { %>
+            <% if (details._id == idTask) { %>
+            <li class="todo-list-item">
+                <form action="/todo/edit/<%= details._id %>" method="POST">
+                    <input type="text" value="<%= details.content %>" name="content">
+                    <button type="submit">Save</button>
+                    <a href="/todo" class="cancel">Cancel</a>
+                </form>
+            </li>
+            <% } else { %>
+            <li class="todo-list-item">
+                <div class="todo-list-item-name"><%= details.content %></div>
+                <a href="/todo/edit/<%= details._id %>" class="edit">&#9998;</a>
+                <a href="/todo/remove/<%= details._id %>" class="remove">&#10006;</a>
+            </li>
+            <% } %>
+            <% }) %>
+        </ul>
+    </div>

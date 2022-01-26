@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
 const MongoDBDucks = require('connect-mongodb-session')(session);
-//const csrf = require('csurf');
 const flash = require('connect-flash');
 const expressLayouts = require('express-ejs-layouts');
 const dotenv = require('dotenv');
@@ -22,8 +21,6 @@ const corsOptions = {
     origin: "https://ducks-in-a-row.herokuapp.com/", 
     optionsSuccessStatus: 200
 };
-
-//const csrfProtect = csrf();
 
 const PORT = process.env.PORT || 5000;
 
@@ -63,6 +60,7 @@ app.use((req, res, next) => {
     .catch(err => console.log(err));
 });
 
+const todoRoutes = require('./controllers/todo')
 const journalRoutes = require('./controllers/journal')
 const userRoutes = require('./controllers/auth')
 const indexRoutes = require('./controllers/index')
@@ -71,22 +69,13 @@ const errorController = require('./controllers/error');
 // Variables to include with every response
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
- // res.locals.csrfToken = req.csrfToken();
   next();
 });
 
-//app.use(csrfProtect);
 app.use(flash());
-//app.use(csrf())
-
-// app.use(function (req, res, next) {
-//   var token = req.csrfToken();
-//   res.cookie('XSRF-TOKEN', token);
-//   res.locals.csrfToken = token;
-//   next();
-// });
 
 // Import Necessary Routes
+app.use('/todo', todoRoutes)
 app.use('/journal', journalRoutes)
 app.use(userRoutes)
 app.use('/', indexRoutes)
