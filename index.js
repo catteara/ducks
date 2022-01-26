@@ -22,8 +22,6 @@ const corsOptions = {
     optionsSuccessStatus: 200
 };
 
-const PORT = process.env.PORT || 5000;
-
 const app = express();
 
 app.use(cors(corsOptions));
@@ -87,7 +85,7 @@ const MONGODB_URL = process.env.MONGODB_URL || process.env.MONGODB_URI;
 mongoose
   .connect(MONGODB_URL)
   .then(result => {
-    app.listen(process.env.PORT || 5000, () => {console.log(`Listening on Port ${PORT}`)});
+    app.listen(process.env.PORT || 5000, () => {console.log("Listening on Port", this.address().port)});
     console.log('Connected to Mongoose');
   })
   .catch(err => { console.log(err) });

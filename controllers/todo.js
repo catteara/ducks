@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const isAuth = require('../middleware/is-auth')
-const Todo = require("../models/Todo");
+const Todo = require("../models/todo");
 
 router.get('/', isAuth, (req, res) => {
     Todo.find({userId: req.user._id}, (err, tasks) =>
