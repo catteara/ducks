@@ -7,11 +7,4 @@ router.get('/', (req, res) => {
     })
 });
 
-// router.use(function(req, res, next){
-//     res.status(404).render('404', {
-//         pageTitle: 'Error',
-//         isAuthenticated: false
-//     })
-// });
-
 module.exports = router;

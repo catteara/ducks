@@ -1,0 +1,19 @@
+<div>
+    <label for="title">Event</label>
+    <input value="<%= calendar.title %>" type="text" name="title" id="title" required></input>
+</div>
+<div>
+    <label for="day">Date</label>
+    <input value="<%= calendar.date %>" type="date" name="day" id="day" required></input>
+</div>
+<div>
+    <label for="time">Time</label>
+    <input value="<%= calendar.time %>" type="time" name="time" id="time"></input>
+</div>
+<div>
+    <label for="details">Details</label>
+    <textarea name="details" id="details"><%= calendar.details %></textarea>
+</div>
+
+<a href="/calendar">Cancel</a>
+<button type="submit">Save</button>

@@ -14,7 +14,7 @@ router.get('/', isAuth, (req, res) => {
 
 router.get('/edit/:id', isAuth, (req, res) => {
     const id = req.params.id
-    Todo.find({}, (err, tasks) => {
+    Todo.find({userId: req.user._id}, (err, tasks) => {
         res.render("todo/edit", {
             todo: tasks, 
             idTask: id, 
