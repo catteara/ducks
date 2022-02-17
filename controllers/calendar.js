@@ -3,7 +3,7 @@ const router = express.Router();
 const Calendar = require('../models/calendar')
 const isAuth = require('../middleware/is-auth');
 
-const { title, day, month, time } = require('process');
+const { title, day, month, start, end } = require('process');
 const { details } = require('stream/consumers');
 const moment = require('moment')
 
@@ -51,18 +51,21 @@ router.post('/calendar', async (req, res, next) => {
         title: title,
         day: day,
         month: month,
-        time: time,
+        start: start,
+        end: end,
         details: details,
         userId: req.user
     })
     let date = req.body.day
     let eventDate = moment(new Date(date)).format('MMM Do')
     let eventMonth = moment(new Date(date)).format('L')
+    
     let calendar = req.calendar
     calendar.day = eventDate
     calendar.title = req.body.title
     calendar.month = eventMonth
-    calendar.time = req.body.time
+    calendar.start = req.body.start
+    calendar.end = req.body.end
     calendar.details = req.body.details
     try {
         calendar = await calendar.save()
@@ -84,7 +87,8 @@ router.put('/calendar/:id', async (req, res, next) => {
     calendar.day = eventDate
     calendar.title = req.body.title
     calendar.month = eventMonth
-    calendar.time = req.body.time
+    calendar.start = req.body.start
+    calendar.end = req.body.end
     calendar.details = req.body.details
     try {
         calendar = await calendar.save()

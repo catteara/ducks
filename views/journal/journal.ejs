@@ -5,7 +5,7 @@
     <div>
         <h2><%= journal.title %></h2>
         <h3><%= journal.date.toLocaleDateString() %></h3>
-        <p><%= journal.text.substring(0,50) %>...</p>
+        <p><%= journal.text.substring(0,50) %> . . .</p>
         <a href="journal/<%= journal._id %>">Read More</a>
         <a href="journal/edit/<%= journal._id %>">Edit</a>
         <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">

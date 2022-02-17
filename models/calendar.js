@@ -18,7 +18,10 @@ const calendarSchema = new Schema({
         type: Date,
         required: true
     },
-    time: {
+    start: {
+        type: String,
+    },
+    end: {
         type: String,
     },
     userId: {

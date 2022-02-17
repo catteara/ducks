@@ -58,6 +58,7 @@ app.use((req, res, next) => {
     .catch(err => console.log(err));
 });
 
+const habitRoutes = require('./controllers/habit')
 const calendarRoutes = require('./controllers/calendar')
 const todoRoutes = require('./controllers/todo')
 const journalRoutes = require('./controllers/journal')
@@ -74,6 +75,7 @@ app.use((req, res, next) => {
 app.use(flash());
 
 // Import Necessary Routes
+app.use('/habit', habitRoutes)
 app.use(calendarRoutes)
 app.use('/todo', todoRoutes)
 app.use('/journal', journalRoutes)
