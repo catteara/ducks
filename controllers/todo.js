@@ -6,7 +6,7 @@ const Todo = require("../models/todo");
 router.get('/', isAuth, (req, res) => {
     Todo.find({userId: req.user._id}, (err, tasks) =>
         res.render('todo/todo', {
-            pageTitle: 'To-Do List',
+            pageTitle: 'To Do List',
             todo: tasks
         })
     )
