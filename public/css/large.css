@@ -1,0 +1,38 @@
+@media only screen and (min-width: 780px) {
+
+/********* BASIC SETUP *********/
+    .title-p {
+        padding-left: 0%;
+    }
+
+    header, main, footer {
+        margin: 5px 20px;
+    }
+
+    .logo {
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 200%;
+    }
+
+   /* Footer */
+    footer p, footer p span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    footer p img {
+        height: 50px;
+    }
+
+    footer p a img:hover {
+        filter:  drop-shadow(3px 3px #ffc31f);
+    }
+
+/*********  *********/
+
+
+}

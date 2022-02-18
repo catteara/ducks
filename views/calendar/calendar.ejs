@@ -12,9 +12,9 @@
                 <%= calendar.end %>
             <% } %></h4>
         <a href="calendar/<%= calendar._id %>">Read More</a>
-        <a href="calendar/edit/<%= calendar._id %>">&#9998;</a>
+        <a href="calendar/edit/<%= calendar._id %>" class="edit">&#9998;</a>
         <form action="/calendar/<%= calendar._id %>?_method=DELETE" method="POST">
-            <button type="submit">&#10006;</button>
+            <button type="submit" class="remove">&#10006;</button>
             <input type="hidden" name="_method" value="DELETE">
         </form>
     </div>

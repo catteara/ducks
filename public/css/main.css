@@ -1,0 +1,232 @@
+/********* BASIC SETUP *********/
+    @font-face {
+        font-family: "Orion Sans";
+        src: url("/fonts/212 Orion Sans PERSONAL USE.ttf");
+    }
+
+    @font-face {
+        font-family: "Better Together";
+        src: url("/fonts/Better Together Demo.ttf");
+    }
+
+    * {
+        color: #011D28;
+    }
+
+    *:not(h1,h2,h3) {
+        font-family: 'Orion Sans', sans-serif;
+        font-size: 24px;
+        -webkit-text-stroke-width: .5px;
+    }
+
+    /* Header */
+    .logo {
+        height: 100px;
+        display: none;
+    }
+
+    .logo-title {
+        display: flex;
+        padding-bottom: 10px;
+    }
+
+    .title-container {
+        width: 300px;
+        margin: auto;
+    }
+
+    .title {
+        font-family: 'Better Together', cursive;
+        font-size: 2.7em;
+        font-weight: bold;
+        margin: 0;
+        color: #136F7C;
+        width: 250px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .title-p {
+        font-size: 34px;
+        margin: 0;
+        margin-top: -25px;
+        padding-left: 5%;
+        color: #136F7C;
+        text-align: center;
+    } 
+    
+    /* Body */
+    h1 {
+        font-family: 'Better Together', cursive;
+        font-size: 150%;
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    header, main, footer {
+        margin: 5px 10px;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    form {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    form input {
+        margin-right: 5px;
+        width: 80%;
+        max-width: 230px;
+    }
+
+    hr {
+        border: none;
+        border-top: 2px solid #ffc31f;
+        border-bottom: 2px solid #136F7C;
+        width: 100%;
+        height: 3px;
+    }
+
+    a.button {
+        background-color: #136f7c;
+        color: #fefefa;
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        width: 90%;
+        max-width: 300px;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+
+    button.button {
+        background-color: #136f7c;
+        color: #fefefa;
+        border-radius: 5px;
+        padding: 0;
+        text-decoration: none;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        font-size: 35px;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+    }
+
+    /* Icons */
+    .edit, .remove {
+        display: inline-block;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        width: 35px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: #011D28;
+    }
+
+     /* Footer */
+     footer p, footer p span {
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+
+    footer p img {
+        padding: 2% 4%;
+        height: 50px;
+    }
+
+    .footer-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+/********* JOURNAL *********/
+    .journal-container {
+        background-color: hsl(182, 25%, 80%);
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .journal-container h2, .journal-container h3 {
+        margin: 0px;
+        font-size: 100%;
+    }
+
+    .journal-container form {
+        width: 35px;
+        display: inline-block;
+    }
+
+/********* HABIT TRACKER *********/
+    .key {
+        margin-top: 10px;
+    }
+
+    .key div {        
+        display: block;
+        margin-top: 3px;
+    }
+
+    .fa-check-circle {
+        color: #136f7c;
+    }
+
+    .fa-times-circle {
+        color: #011d28;
+    }
+
+    .fa-minus-circle {
+        color: #ffc31f;
+    }
+
+    .status2 .fa-check-circle {
+        color: #136f7c;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .status2 .fa-times-circle {
+        color: #011d28;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .status2 .fa-minus-circle {
+        color: #ffc31f;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .habit-list {
+        padding: 0px;
+    }
+
+    .habit-list-item {
+        display: flex;
+        gap: 5px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .dotw {
+        width: 80px;
+    }
+
+    .habit-list-item-name {
+        display: flex;
+        width: 250px;
+        text-align: left;
+    }
