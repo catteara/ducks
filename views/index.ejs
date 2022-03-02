@@ -1,2 +1,25 @@
-<h1>Welcome</h1>
-<p><a href="/signup">Sign up</a> or <a href="/login">Log in</a> now to start organizing your ducks.</p>
+<% if (!isAuthenticated) { %>
+    <h1>Welcome</h1>
+    <img src="https://i.postimg.cc/rshb5Cq7/mockup.png" alt="Mockup" class="mockup">
+    <p><a href="/signup">Sign up</a> or <a href="/login">Log in</a> now to start organizing your ducks.</p>
+    <% } else { %>
+        <h1>Time to Start</h1>
+        <div class="thumbnail-container">
+            <a href="/journal" class="thumbnail">
+                <img src="https://i.postimg.cc/gjZ34hQS/journal.png" alt="Journal Icon">
+                <p>Journal</p>
+            </a>
+            <a href="/todo" class="thumbnail">
+                <img src="https://i.postimg.cc/pTyfh4Zt/todo.png" alt="To-Do Icon">
+                <p>To-Do</p>
+            </a>
+            <a href="/habit" class="thumbnail">
+                <img src="https://i.postimg.cc/1tTppBCV/habit.png" alt="Habit Tracker Icon">
+                <p>Habit Tracker</p>
+            </a>
+            <a href="/agenda" class="thumbnail">
+                <img src="https://i.postimg.cc/KY07YxtN/agenda.png" alt="Agenda Icon">
+                <p>Agenda</p>
+            </a>
+        </div>
+    <% } %>

@@ -67,7 +67,7 @@ router.post('/login', check('email').isEmail().withMessage('Please enter a valid
                         req.session.user = user;
                         return req.session.save(err => {
                             console.log(err);
-                            res.redirect('/journal');
+                            res.redirect('/');
                         });
                     }
                     return res.render('auth/login', {

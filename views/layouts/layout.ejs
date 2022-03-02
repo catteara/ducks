@@ -9,7 +9,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="stylesheet" type="text/css" href="/css/index.css">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/large.css">
   <link rel="stylesheet" type="text/css" href="/css/nav.css">
 </head>
 
@@ -40,7 +42,7 @@
           <a href="/habit" class="nav-link">Habit Tracker</a>
         </li>
         <li class="nav-item">
-          <a href="/calendar" class="nav-link">Calendar</a>
+          <a href="/agenda" class="nav-link">Agenda</a>
         </li>
         <% } %>
         <% if (!isAuthenticated) { %>
@@ -52,8 +54,8 @@
         </li>
         <% } else { %>
         <li class="nav-item">
-          <form action="/logout" method="post" class="nav-link">
-            <button type="submit">Logout</button>
+          <form action="/logout" method="post">
+            <button type="submit" class="nav-link">Logout</button>
           </form>
         </li>
         <% } %>
@@ -65,7 +67,7 @@
       </div>
     </nav>
   </header>
-  <hr>
+  <hr class="hr-top">
   <main>
     <%- body %>
   </main>
@@ -89,15 +91,15 @@
     }
   </script>
 </body>
-<hr>
+<hr class="hr-bottom">
 <footer>
-  <p><span>Ducks in a Row 2022 | Catteara Neyman</span>
-    <img src="https://i.postimg.cc/Tpx1pnjv/logo-trans.png" alt="logo" class="footer-logo">
-    <span>
-      <a href="facebook.com"><img src="https://i.postimg.cc/vDPjX085/facebook.png" alt="Facebook"></a>
-      <a href="instagram.com"><img src="https://i.postimg.cc/MvvLL1XN/instagram.png" alt="Instagram"></a>
+  <p><span class="footer-left"><span>
+      <a href="https://www.facebook.com/"><img src="https://i.postimg.cc/vDPjX085/facebook.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/"><img src="https://i.postimg.cc/MvvLL1XN/instagram.png" alt="Instagram"></a>
       <a href="/contact"><img src="https://i.postimg.cc/KRwWh4Mz/mail.png" alt="Contact Me"></a>
     </span>
+    <span>Ducks in a Row 2022 |<a href="https://www.linkedin.com/in/catteara/">Catteara Neyman</a></span></span>
+    <img src="https://i.postimg.cc/Tpx1pnjv/logo-trans.png" alt="logo" class="footer-logo">
   </p>
 </footer>
 

@@ -1,16 +1,21 @@
 <h1>Journal Entries</h1>
-<a href='/journal/new'>New Entry</a>
+<a href='/journal/new' class='button'>New Entry</a>
 
-<% journal.forEach(journal => { %>
-    <div>
-        <h2><%= journal.title %></h2>
-        <h3><%= journal.date.toLocaleDateString() %></h3>
-        <p><%= journal.text.substring(0,50) %> . . .</p>
-        <a href="journal/<%= journal._id %>">Read More</a>
-        <a href="journal/edit/<%= journal._id %>">Edit</a>
-        <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete</button>
-            <input type="hidden" name="_method" value="DELETE">
-        </form>
-    </div>
-<% }) %>
+<div class="journal">
+    <% journal.forEach(journal => { %>
+        <div class="journal-container">
+            <h2><%= journal.title %></h2>
+            <h3><%= journal.date.toLocaleDateString() %></h3>
+            <p><%= journal.text.substring(0,35) %> . . .
+                <a href="journal/<%= journal._id %>"><br>Read More</a>
+            </p>
+            <div>
+                <a href="/journal/edit/<%= journal._id %>" class="edit">&#9998;</a>
+                <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="remove">&#10006;</button>
+                    <input type="hidden" name="_method" value="DELETE">
+                </form>
+            </div>
+        </div>
+    <% }) %>
+</div>

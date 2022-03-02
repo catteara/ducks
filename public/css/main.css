@@ -1,0 +1,564 @@
+/********* BASIC SETUP *********/
+    @font-face {
+        font-family: "Orion Sans";
+        src: url("/fonts/212 Orion Sans PERSONAL USE.ttf");
+    }
+
+    @font-face {
+        font-family: "Better Together";
+        src: url("/fonts/Better Together Demo.ttf");
+    }
+
+    * {
+        color: #011d28;
+    }
+
+    *:not(h1,h2,h3) {
+        font-family: 'Orion Sans', sans-serif;
+        font-size: 24px;
+        -webkit-text-stroke-width: .5px;
+    }
+
+    h4, h5 {
+        margin: 0;
+    }
+
+    input {
+        background-color: #fefefa;
+        border-top: 2px solid #011d28;
+        border-left: 2px solid #011d28;
+        border-right: 2px solid #136f7c;
+        border-bottom: 2px solid #136f7c;
+    }
+
+    /* Header */
+    .logo {
+        height: 100px;
+        display: none;
+    }
+
+    .logo-title {
+        display: flex;
+        padding-bottom: 10px;
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=b3d0d1);
+    }
+
+    .title-container {
+        width: 300px;
+        margin: auto;
+    }
+
+    .title {
+        font-family: 'Better Together', cursive;
+        font-size: 2.7em;
+        font-weight: bold;
+        margin: 0 auto;
+        color: #136F7C;
+        width: 250px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .title-p {
+        font-size: 34px;
+        margin: 0;
+        margin-top: -25px;
+        padding-left: 5%;
+        color: #136F7C;
+        text-align: center;
+    } 
+    
+    /* Body */
+    h1 {
+        font-family: 'Better Together', cursive;
+        font-size: 150%;
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    header, 
+    main, 
+    footer {
+        margin: 5px 10px;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .hr-top {
+        border: none;
+        border-bottom: 2px solid #ffc31f;
+        border-top: 2px solid #136F7C;
+        width: 100%;
+        height: 3px;
+    }
+
+    .hr-bottom {
+        border: none;
+        border-top: 2px solid #ffc31f;
+        border-bottom: 2px solid #136F7C;
+        width: 100%;
+        height: 3px;
+    }
+
+    a.button {
+        background-color: #136f7c;
+        color: #fefefa;
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        width: 90%;
+        max-width: 300px;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+
+    /* Buttons */
+    button.button {
+        background-color: #136f7c;
+        color: #fefefa;
+        border-radius: 5px;
+        padding: 0;
+        text-decoration: none;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        font-size: 35px;
+    }
+
+    button.btn {
+        margin-top: 10px;
+        background-color: #136f7c;
+        color: #fefefa;
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        text-align: center;
+        height: 36px;
+        width: 236px;
+    }
+
+    button.button:hover, 
+    button.btn:hover, 
+    a.button:hover {
+        background-color: #011D28;
+        color: #ffc31f;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .button-container .save {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+    }
+
+    .cancel:hover {
+        font-weight: bold;
+    }
+
+    .journal-container .edit, 
+    .journal-container .remove, 
+    .todo-list .edit, 
+    .todo-list .remove,
+    .habit-list-item-name .edit:hover,
+    .habit-list-item-name .remove:hover,
+    .event .edit,
+    .event .remove {
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    .journal-container .remove:hover, 
+    .journal-container .edit:hover,
+    .todo-list .remove:hover, 
+    .todo-list .edit:hover,
+    .habit-list-item-name .edit:hover,
+    .habit-list-item-name .remove:hover,
+    .event .edit:hover,
+    .event .remove:hover {
+        color: #ffc31f;
+        background-color: #011D28;
+        text-decoration: none;
+    }
+
+    /* Icons */
+    .edit, 
+    .remove {
+        display: inline-block;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        width: 35px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: #011D28;
+    }
+
+     /* Footer */
+     footer p, footer p span {
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+
+    footer p img {
+        padding: 2% 4%;
+        height: 50px;
+    }
+
+    .footer-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .footer-left span a:hover {
+        text-decoration: none;
+        color: #136f7c;
+    }
+
+/********* FORMS *********/
+    .block, form {
+        display: block;
+    }
+
+    form div {
+        margin-bottom: 5px;
+    }
+
+    .small-form-container {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    form input {
+        margin-right: 5px;
+        width: 80%;
+        max-width: 236px;
+    }    
+
+    .form {
+        width: 236px;
+        margin: auto; 
+    }
+
+    .form div {
+        width: 236px;
+    }
+
+    .form input, 
+    .form textarea {
+        width: 230px;
+        margin: 0;
+        padding: 2px;
+        background-color: #fefefa;
+        border-top: 1px solid #011d28;
+        border-left: 1px solid #011d28;
+        border-right: 1px solid #136f7c;
+        border-bottom: 1px solid #136f7c;
+    }
+
+    .form textarea {
+        height: 150px;
+    }
+
+/********* HOME PAGE *********/
+
+    .mockup {
+        display: block;
+        width: 90%;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .thumbnail-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        width: 100%;
+        gap: 0 5px;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .thumbnail {
+        background-color: hsl(182, 25%, 80%); 
+        margin-bottom: 5px;
+        width: 40%;
+        min-width: 115px;
+        max-width: 200px;
+        text-decoration: none;
+        padding: 5px;
+        border: 1px solid transparent;
+    }
+
+    .thumbnail:hover {
+        background-color: #b3d0d1;
+        border: 1px solid #136f7c;
+    }
+
+    .thumbnail img {
+        display: block;
+        margin: auto;
+        width: 90%;
+        max-width: 300px;
+        padding-top: 15px;
+    }
+
+    .thumbnail p {
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+
+/********* JOURNAL *********/
+    .journal-container {
+        background-color: hsl(182, 25%, 90%);
+        padding: 20px;
+        margin: 20px 20px;
+        overflow-wrap: break-word;
+    }
+
+    .journal-container h1 {
+        font-family: 'Orion Sans', sans-serif;
+    }
+
+    .journal-container h2 {
+        margin: 0px;
+        font-size: 120%;
+    }
+
+    .journal-container h3 {
+        margin: 0px;
+        font-size: 100%;
+    }
+
+    .journal-container form {
+        width: 35px;
+        display: inline-block;
+    }
+    
+
+/********* HABIT TRACKER *********/
+    .key {
+        margin-top: 10px;
+    }
+
+    .key div {        
+        display: block;
+        margin-top: 3px;
+    }
+
+    .fa-check-circle {
+        color: #136f7c;
+    }
+
+    .fa-times-circle {
+        color: #011d28;
+    }
+
+    .fa-minus-circle {
+        color: #ffc31f;
+    }
+
+    .status2 .fa-check-circle {
+        color: #136f7c;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .status2 .fa-times-circle {
+        color: #011d28;
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .status2 .fa-minus-circle {
+        color: #ffc31f;
+        font-size: 24px;
+        margin-top: 10px;
+        /* border-radius: 50%;
+        background-color: #011d28; */
+    }
+
+    .dotw .fa-check-circle:hover {
+        color: #011d28;
+    }
+
+    .dotw .fa-times-circle:hover {
+        color: #ffc31f;
+        /* border-radius: 50%;
+        background-color: #011d28; */
+    }
+
+    .dotw .fa-minus-circle:hover {
+        color: #136f7c;
+    }
+
+    .habit-list {
+        padding: 0px;
+    }
+
+    .habit-list-item {
+        display: block;
+        gap: 5px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .habit-list-item:not(:last-child) {
+        border-bottom: .5px solid #136F7C;
+    }
+
+    .week {
+        display: block;
+        width: 90%;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto; 
+        padding-bottom: 10px;
+    }
+
+    .dotw {
+        padding: 3px;
+    }
+
+    .habit-list-item-name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        max-width: 250px;
+        text-align: left;
+        margin-left: auto;
+        margin-right: auto; 
+        height: 40px;
+    }
+
+    .dotw:nth-child(odd) {
+        background-color: hsl(182, 25%, 90%);
+    }
+
+    /* Habit Edit */
+
+    .habit-edit .habit-list-item form {
+        width: 90%;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .habit-edit .habit-list-item form input {
+        width: 100%;
+        max-width: 246px;
+        margin: 0;
+    }
+
+    .habit-edit .habit-list-item form div {
+        text-align: right;
+    }
+
+    .habit-edit .btn {
+        width: auto;
+    }
+
+    .habit-edit .habit-list-item-name:nth-child(odd) {
+        background-color: hsl(182, 25%, 90%);
+    }
+
+/********* TO-DO LIST *********/
+
+.todo-list {
+    padding: 0;
+    max-width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.todo-list-item {
+    display: flex;
+    list-style-type: none;
+    padding: 15px;
+    width: 90%;
+    max-width: 500px;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.todo-list-item input {
+    width: 100%;
+    max-width: 224px;
+    margin: 0;
+}
+
+.todo-list-item div {
+    display: inline-flex;
+}
+
+.todo-list-item:nth-child(odd) {
+    background-color: hsl(182, 25%, 90%);
+}
+
+.todo-list-item-name {
+    overflow-wrap: break-word;
+}
+
+.todo-list-item .icons a {
+    text-align: right;
+}
+
+/********* AGENDA *********/
+
+.event {
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+
+.event:nth-child(odd){
+    background-color: hsl(182, 25%, 90%);
+}
+
+.event h2 {
+    background-color: #b3d0d1;
+    padding: 10px;
+}
+
+.event h2, .event h3, .event p {
+    margin: 2px;
+}
+
+.event div {
+    padding: 5px 10px;
+}
+
+.event div div {
+    display: flex;
+    padding: 0px
+}
+
+a.agenda-btn {
+    margin-bottom: 20px;
+}

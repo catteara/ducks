@@ -1,27 +1,31 @@
-<link rel="stylesheet" href="/css/habit.css">
 <script src="https://kit.fontawesome.com/761d42c757.js" crossorigin="anonymous"></script>
-<h1>Habit Tracker</h1>
-<div class="habit">
-  <form action="/habit" method="POST">
-    <input type="text" name="content" required>
-    <button type="submit">&plus;</button>
-  </form>
-  <i class="fas fa-check-circle"></i>
-  -Done
-  <i class="fas fa-times-circle"></i>
-  -Not Done
-  <i class="fas fa-minus-circle"></i>
-  -Unmarked
-  
+<div>
+  <h1>Habit Tracker</h1>
+  <div class="habit">
+    <form action="/habit" method="POST" class="small-form-container">
+      <input type="text" name="content" required>
+      <button type="submit" class="button">&plus;</button>
+    </form>
+    <div class="key">
+      <div><i class="fas fa-check-circle"></i>
+        Done</div>
+      <div><i class="fas fa-times-circle"></i>
+        Not Done</div>
+      <div><i class="fas fa-minus-circle"></i>
+        Unmarked</div>
+    </div>
+</div>
   <ul class="habit-list text-center">
     <% habits.forEach(details => { %>
     <li class="habit-list-item">
       <div class="habit-list-item-name">
-        <%= details.content %>
-        <a href="/habit/edit/<%= details._id %>"class="edit">&#9998;</a>
-        <a href="/habit/remove/<%= details._id %>" class="remove">&#10006;</a></div>
-
-      <% days.forEach(day => { let found = false, status = '';
+        <h4><%= details.content %></h4>
+        <div class="icons">
+          <a href="/habit/edit/<%= details._id %>" class="edit">&#9998;</a>
+          <a href="/habit/remove/<%= details._id %>" class="remove">&#10006;</a></div>
+        </div>
+      <div class="week">
+        <% days.forEach(day => { let found = false, status = '';
             details.dates.find(function (item, index) {
                 if(item.date === day.date)
                 {
@@ -30,19 +34,20 @@
                 }
             });
             %>
-      <div class="dotw">
-        <div><span><%= day.day + ", " + day.date.slice(-2) %></span></div>
-        <a href="/habit/status-update/?id=<%= details._id %>&date=<%= day.date %>" class="status2">
-          <% if(found && status==='yes'){ %>
-          <i class="fas fa-check-circle"></i>
-          <% } else if(found && status==='no'){ %>
-          <i class="fas fa-times-circle"></i>
-          <% } else { %>
-          <i class="fas fa-minus-circle"></i>
-          <% } %>
-        </a>
+        <div class="dotw">
+          <div><span><%= day.day + ", " + day.date.slice(-2) %></span></div>
+          <a href="/habit/status-update/?id=<%= details._id %>&date=<%= day.date %>" class="status2">
+            <% if(found && status==='yes'){ %>
+            <i class="fas fa-check-circle"></i>
+            <% } else if(found && status==='no'){ %>
+            <i class="fas fa-times-circle"></i>
+            <% } else { %>
+            <i class="fas fa-minus-circle"></i>
+            <% } %>
+          </a>
+        </div>
+        <% }) %>
       </div>
-      <% }) %>
     </li>
     <% }) %>
   </ul>

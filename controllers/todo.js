@@ -9,7 +9,7 @@ router.get('/', isAuth, (req, res) => {
             pageTitle: 'To Do List',
             todo: tasks
         })
-    )
+    ).sort({ content: 'asc'})
 });
 
 router.get('/edit/:id', isAuth, (req, res) => {

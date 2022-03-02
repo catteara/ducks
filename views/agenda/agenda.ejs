@@ -1,0 +1,27 @@
+<h1>Agenda</h1>
+
+<a href='/agenda/new' class="button agenda-btn">New Event</a>
+
+<% agenda.forEach(agenda => { %>
+    <div class='event'>
+        <h2><%= agenda.day %></h2>
+        <div>
+            <h3><%= agenda.title %></h3>
+            <h4><%= agenda.start %> 
+                <% if (agenda.end) { %>
+                    - 
+                    <%= agenda.end %>
+                <% } %></h4>
+                <% if (agenda.details) { %>
+                    <p><%= agenda.details %></p>
+                <% } %>
+            <div>
+                <a href="/agenda/edit/<%= agenda._id %>" class="edit">&#9998;</a>
+                <form action="/agenda/<%= agenda._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="remove">&#10006;</button>
+                    <input type="hidden" name="_method" value="DELETE">
+                </form>
+            </div>  
+        </div>
+    </div>
+<%})%>
