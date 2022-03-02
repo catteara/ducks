@@ -1,6 +1,6 @@
 <h1>To Do List</h1>
 <div class="todo">
-  <form action="/todo" method="POST">
+  <form action="/todo" method="POST" class="small-form-container">
     <input type="text" name="content">
     <button type="submit" class="button">&plus;</button>
   </form>
@@ -8,8 +8,10 @@
     <% todo.forEach(details => { %>
     <li class="todo-list-item">
       <div class="todo-list-item-name"><%= details.content %></div>
-      <a href="/todo/edit/<%= details._id %>" class="edit">&#9998;</a>
-      <a href="/todo/remove/<%= details._id %>" class="remove">&#10006;</a>
+      <div class="icons">
+        <a href="/todo/edit/<%= details._id %>" class="edit">&#9998;</a>
+        <a href="/todo/remove/<%= details._id %>" class="remove">&#10006;</a>
+      </div>
     </li>
     <% }) %>
   </ul>

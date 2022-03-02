@@ -1,6 +1,6 @@
 <h1>Contact Me</h1>
 
-<form action="/contact" method="POST">
+<form action="/contact" method="POST" class="form">
     <div>
         <label for="name">Name</label>
         <input value="<%= contact.name %>" type="text" name="name" id="name" required></input>
@@ -15,7 +15,7 @@
     </div>
     <div>
         <label for="message">Message</label>
-        <input value="<%= contact.message %>" type="text" name="message" id="message"></input>
+        <textarea value="<%= contact.message %>" type="text" name="message" id="message"></textarea>
     </div>
-    <button type="submit">Send Message</button>
+    <button type="submit" class="btn">Send Message</button>
 </form>

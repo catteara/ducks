@@ -3,7 +3,6 @@ const router = express.Router();
 const Contact = require('../models/contact')
 const { name, email, subject, message } = require('process');
 
-
 router.get('/', (req, res) => {
     res.render('index', {
         pageTitle: 'Home'

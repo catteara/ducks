@@ -1,24 +1,14 @@
 <h1>Habit Tracker</h2>
-    <div>
-        <form action="" method="POST" class="todo-header">
-            <input type="text" name="content">
-            <button type="submit">&plus;</button>
-        </form>
-        <ul>
+    <div class='habit-edit'>
+        <ul class="habit-list text-center">
             <% habit.forEach(details => { %>
             <% if (details._id == idHabit) { %>
-            <li>
+            <li class="habit-list-item">
                 <form action="/habit/edit/<%= details._id %>" method="POST">
                     <input type="text" value="<%= details.content %>" name="content">
-                    <button type="submit">Save</button>
-                    <a href="/habit" class="cancel">Cancel</a>
+                    <div><a href="/habit" class="cancel">Cancel</a>
+                    <button type="submit" class="btn save">Save</button></div>
                 </form>
-            </li>
-            <% } else { %>
-            <li>
-                <div><%= details.content %></div>
-                <a href="/habit/edit/<%= details._id %>" class="edit">&#9998;</a>
-                <a href="/habit/remove/<%= details._id %>" class="remove">&#10006;</a>
             </li>
             <% } %>
             <% }) %>

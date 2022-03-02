@@ -56,12 +56,14 @@
     }
 
     .nav-link, button {
-        color: #fefefa
+        color: #fefefa;
+        padding: 3px;
     }
 
-    .nav-link:hover, button:hover {
+    .nav-link:hover, 
+    button:hover {
         color: #ffc31f;
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     .navmenu {
@@ -89,6 +91,7 @@
     .hamburger {
         display: block;
         cursor: pointer;
+        padding-top: 10px;
     }
 
     .hamburger.active .bar:nth-child(2) {

@@ -1,0 +1,25 @@
+<div>
+    <label for="title">Event</label>
+    <input value="<%= agenda.title %>" type="text" name="title" id="title" required></input>
+</div>
+<div>
+    <label for="day">Date</label>
+    <input  type="date" value="<%= agenda.month %>" name="day" id="day" required></input>
+</div>
+<div>
+    <label for="start">Start Time</label>
+    <input value="<%= agenda.start %>" type="time" name="start" id="start"></input>
+</div>
+<div>
+    <label for="end">End Time</label>
+    <input value="<%= agenda.end %>" type="time" name="end" id="end"></input>
+</div>
+<div>
+    <label for="details">Details</label>
+    <textarea name="details" id="details"><%= agenda.details %></textarea>
+</div>
+
+<div class="button-container">
+    <a href="/agenda">Cancel</a>
+    <button type="submit" class="btn save">Save</button>
+</div>
