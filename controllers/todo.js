@@ -20,7 +20,7 @@ router.get('/edit/:id', isAuth, (req, res) => {
             idTask: id, 
             pageTitle: 'Edit Entry'
         })
-    })
+    }).sort({ content: 'asc'})
 });
 
 router.post('/', async (req, res) => {

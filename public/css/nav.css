@@ -2,8 +2,9 @@
     list-style: none;
 }
 
-.navbar a {
+.navbar a, .navbar button {
     text-decoration: none;
+    -webkit-text-stroke-width: initial;
 }
 
 .navbar {
@@ -55,15 +56,25 @@
         display: block;
     }
 
-    .nav-link, button {
-        color: #fefefa;
-        padding: 3px;
+    .nav-item {
+        margin: 25px 0;
     }
 
-    .nav-link:hover, 
-    button:hover {
-        color: #ffc31f;
-        text-decoration: none;
+    .nav-item form {
+        margin-top: -10px;
+    }
+
+    .nav-link {
+        padding: 30px;
+    }
+
+    .nav-item form .nav-link {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .nav-link, button {
+        color: #fefefa;
     }
 
     .navmenu {
@@ -78,14 +89,14 @@
         box-shadow: 0 10px 27px rgb(1, 29, 40, 0.05);
     }
 
+    .nav-item:first-child {
+        padding-top: 10px;
+    }
+
     .navmenu.active {
         left: 0;
         width: 100%;
         padding: 30px 0 0 0;
-    }
-
-    .nav-item {
-        margin: 22px 0;
     }
 
     .hamburger {
@@ -106,6 +117,23 @@
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
         background-color:#fefefa;
+    }
+
+    .nav-link:hover, 
+    button.nav-link:hover,
+    .nav-item a.current:hover {
+        color: #011D28;
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fefefa);
+        text-decoration: none;
+        padding: 10px;
+        -webkit-text-stroke-width: 1.2px;
+    }
+
+    .nav-item a.current {
+        color: #011D28;
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=b3d0d1);
+        -webkit-text-stroke-width: initial;
+        padding: 10px;
     }
 
 }

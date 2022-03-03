@@ -3,8 +3,7 @@
 /********* BASIC SETUP *********/
 
     header, 
-    main, 
-    footer {
+    main {
         margin: 5px 20px;
     }
 
@@ -32,6 +31,10 @@
         height: 46px;
         justify-content: right;
         margin-right: 5%;
+    }
+
+    .navbar li {
+        margin-left: 10px;
     }
 
     ul.navmenu {
@@ -77,6 +80,10 @@
         opacity: 80%;
     }
 
+    .btn {
+        margin-bottom: 10px;
+    }
+
     h1 {
         font-size: 200%;
         max-width: 800px;
@@ -89,7 +96,7 @@
    /* Footer */
 
     footer {
-        margin-top: none;
+        margin: 0 5% 10px 5%;
     }
 
     footer p, 
@@ -219,4 +226,10 @@
     .day-view {
         margin: auto 40px;
     }
+}
+
+a.current {
+    color: #fefefa;
+    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
+    -webkit-text-stroke-width: initial;
 }
