@@ -28,29 +28,29 @@
       <ul class='navmenu'>
         <% if (!isAuthenticated) { %>
         <li class="nav-item">
-          <a href="/" class="nav-link">Home</a>
+          <a href="/" <% if (pageTitle === 'Home') { %>class="nav-link current" <% } else { %> class="nav-link" <% } %> >Home</a>
         </li>
         <% } %>
         <% if (isAuthenticated) { %>
         <li class="nav-item">
-          <a href="/journal" class="nav-link">Journal</a>
+          <a href="/journal" <% if (pageTitle === 'Journal') { %>class="nav-link current" <% } else { %> class="nav-link" <% } %> >Journal</a>
         </li>
         <li class="nav-item">
-          <a href="/todo" class="nav-link">To-Do</a>
+          <a href="/todo" <% if (pageTitle === 'To Do List') { %>class="nav-link current" <% } else { %> class="nav-link" <% } %> >To-Do</a>
         </li>
         <li class="nav-item">
-          <a href="/habit" class="nav-link">Habit Tracker</a>
+          <a href="/habit" <% if (pageTitle === 'Habit Tracker') { %>class="nav-link current" <% } else { %> class="nav-link" <% } %> >Habit Tracker</a>
         </li>
         <li class="nav-item">
-          <a href="/agenda" class="nav-link">Agenda</a>
+          <a href="/agenda" <% if (pageTitle === 'Agenda') { %>class="nav-link current" <% } else { %> class="nav-link" <% } %> >Agenda</a>
         </li>
         <% } %>
         <% if (!isAuthenticated) { %>
         <li class="nav-item">
-          <a href="/login" class="nav-link">Login</a>
+          <a href="/login" <% if (pageTitle === 'Login') { %>class="nav-link current" <% } else { %> class="nav-link" <% } %> >Login</a>
         </li>
         <li class="nav-item">
-          <a href="/signup" class="nav-link">Signup</a>
+          <a href="/signup" <% if (pageTitle === 'Signup') { %>class="nav-link current" <% } else { %> class="nav-link" <% } %> >Signup</a>
         </li>
         <% } else { %>
         <li class="nav-item">
