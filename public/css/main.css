@@ -19,6 +19,10 @@
         -webkit-text-stroke-width: .5px;
     }
 
+    body {
+        background-color: #fefefa;
+    }
+
     h4, h5 {
         margin: 0;
     }
@@ -570,4 +574,8 @@ a.current {
     color: #fefefa;
     background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
     -webkit-text-stroke-width: initial;
+}
+
+.message {
+    text-align: center;
 }
