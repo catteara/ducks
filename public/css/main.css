@@ -1,7 +1,26 @@
+/********* VARIABLES *********/
+.light {
+    --main: #FEFEFA;
+    --sec-main: #B3D0D1;
+    --text: #011D28;
+    --accent: #FFC31F;
+    --sec-accent: #136F7C;
+    --back: rgb(179, 208, 209, .8);
+}
+
+.dark {
+    --main: #011D28;
+    --sec-main: #136F7C;
+    --text: #FEFEFA;
+    --accent: #FFC31F;
+    --sec-accent: #B3D0D1;
+    --back: rgb(179, 208, 209, .1);
+}
+
 /********* BASIC SETUP *********/
     @font-face {
-        font-family: "Orion Sans";
-        src: url("/fonts/212 Orion Sans PERSONAL USE.ttf");
+        font-family: "Simple Sans";
+        src: url("/fonts/Simple Kind Of Girl.ttf");
     }
 
     @font-face {
@@ -10,17 +29,16 @@
     }
 
     * {
-        color: #011d28;
+        color: var(--text);
     }
 
     *:not(h1,h2,h3) {
-        font-family: 'Orion Sans', sans-serif;
+        font-family: 'Simple Sans', sans-serif;
         font-size: 24px;
-        -webkit-text-stroke-width: .5px;
     }
 
     body {
-        background-color: #fefefa;
+        background-color: var(--main);
     }
 
     h4, h5 {
@@ -28,11 +46,11 @@
     }
 
     input {
-        background-color: #fefefa;
-        border-top: 2px solid #011d28;
-        border-left: 2px solid #011d28;
-        border-right: 2px solid #136f7c;
-        border-bottom: 2px solid #136f7c;
+        background-color: var(--main);
+        border-top: 2px solid var(--text);
+        border-left: 2px solid var(--text);
+        border-right: 2px solid var(--sec-accent);
+        border-bottom: 2px solid var(--sec-accent);
     }
 
     /* Header */
@@ -41,10 +59,19 @@
         display: none;
     }
 
+    body.dark .logo {
+        border-radius: 50%;
+        background-color: rgb(179, 208, 209, 0.4);
+    }
+
     .logo-title {
         display: flex;
         padding-bottom: 10px;
         background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=b3d0d1);
+    }
+
+    body.dark .logo-title {
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
     }
 
     .title-container {
@@ -57,7 +84,7 @@
         font-size: 2.7em;
         font-weight: bold;
         margin: 0 auto;
-        color: #136F7C;
+        color: var(--text);
         width: 250px;
         max-width: 100%;
         text-align: center;
@@ -68,7 +95,7 @@
         margin: 0;
         margin-top: -25px;
         padding-left: 5%;
-        color: #136F7C;
+        color: var(--text);
         text-align: center;
     } 
     
@@ -94,23 +121,23 @@
 
     .hr-top {
         border: none;
-        border-bottom: 2px solid #ffc31f;
-        border-top: 2px solid #136F7C;
+        border-bottom: 2px solid var(--accent);
+        border-top: 2px solid var(--sec-accent);
         width: 100%;
         height: 3px;
     }
 
     .hr-bottom {
         border: none;
-        border-top: 2px solid #ffc31f;
-        border-bottom: 2px solid #136F7C;
+        border-top: 2px solid var(--accent);
+        border-bottom: 2px solid var(--sec-accent);
         width: 100%;
         height: 3px;
     }
 
     a.button {
-        background-color: #136f7c;
-        color: #fefefa;
+        background-color: var(--sec-accent);
+        color: var(--main);
         border-radius: 5px;
         padding: 5px 10px;
         text-decoration: none;
@@ -123,21 +150,20 @@
 
     /* Buttons */
     button.button {
-        background-color: #136f7c;
-        color: #fefefa;
+        background-color: var(--sec-accent);
+        color: var(--main);
         border-radius: 5px;
         padding: 0;
         text-decoration: none;
         text-align: center;
         width: 36px;
-        height: 36px;
         font-size: 35px;
     }
 
     button.btn {
         margin-top: 10px;
-        background-color: #136f7c;
-        color: #fefefa;
+        background-color: var(--sec-accent);
+        color: var(--main);
         border-radius: 5px;
         padding: 5px 10px;
         text-decoration: none;
@@ -149,8 +175,15 @@
     button.button:hover, 
     button.btn:hover, 
     a.button:hover {
-        background-color: #011D28;
-        color: #ffc31f;
+        background-color: var(--text);
+        color: var(--accent);
+    }
+
+    body.dark button.button:hover, 
+    body.dark button.btn:hover, 
+    body.dark a.button:hover {
+        background-color: var(--accent);
+        color: var(--main);
     }
 
     .button-container {
@@ -198,10 +231,22 @@
     .habit-list-item-name .remove:hover,
     .event .edit:hover,
     .event .remove:hover {
-        color: #ffc31f;
-        background-color: #011D28;
+        color: var(--accent);
+        background-color: var(--text);
         text-decoration: none;
     }
+
+    body.dark .journal-container .remove:hover, 
+    body.dark .journal-container .edit:hover,
+    body.dark .todo-list .remove:hover, 
+    body.dark .todo-list .edit:hover,
+    body.dark .habit-list-item-name .edit:hover,
+    body.dark .habit-list-item-name .remove:hover,
+    body.dark .event .edit:hover,
+    body.dark .event .remove:hover {
+        background-color: var(--main);
+    }
+
 
     /* Icons */
     .edit, 
@@ -210,11 +255,11 @@
         text-decoration: none;
         background-color: transparent;
         border: none;
-        width: 35px;
+        width: 40px;
         margin: 0;
         padding: 0;
         text-align: center;
-        color: #011D28;
+        color: var(--text);
     }
 
      /* Footer */
@@ -236,7 +281,7 @@
 
     .footer-left span a:hover {
         text-decoration: none;
-        color: #136f7c;
+        color: var(--sec-accent);
     }
 
 /********* FORMS *********/
@@ -274,11 +319,19 @@
         width: 230px;
         margin: 0;
         padding: 2px;
-        background-color: #fefefa;
-        border-top: 1px solid #011d28;
-        border-left: 1px solid #011d28;
-        border-right: 1px solid #136f7c;
-        border-bottom: 1px solid #136f7c;
+        background-color: var(--main);
+        border-top: 1px solid var(--text);
+        border-left: 1px solid var(--text);
+        border-right: 1px solid var(--sec-accent);
+        border-bottom: 1px solid var(--sec-accent);
+    }
+
+    body.dark .form input, 
+    body.dark .form textarea {
+        border-top: 1px solid var(--sec-accent);
+        border-left: 1px solid var(--sec-accent);
+        border-right: 1px solid var(--sec-main);
+        border-bottom: 1px solid var(--sec-main);
     }
 
     .form textarea {
@@ -312,12 +365,17 @@
         max-width: 200px;
         text-decoration: none;
         padding: 5px;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
     }
 
     .thumbnail:hover {
-        background-color: #b3d0d1;
-        border: 1px solid #136f7c;
+        background-color: var(--sec-main);
+        border: 2px solid var(--sec-accent);
+    }
+
+    body.dark .thumbnail:hover {
+        background-color: var(--sec-accent);
+        border: 2px solid var(--accent);
     }
 
     .thumbnail img {
@@ -334,16 +392,20 @@
         padding-bottom: 30px;
     }
 
+    body.dark .thumbnail p {
+        color: var(--main)
+    }
+
 /********* JOURNAL *********/
     .journal-container {
-        background-color: hsl(182, 25%, 90%);
+        background-color: var(--sec-main);
         padding: 20px;
         margin: 20px 20px;
         overflow-wrap: break-word;
     }
 
     .journal-container h1 {
-        font-family: 'Orion Sans', sans-serif;
+        font-family: 'Simple Sans', sans-serif;
     }
 
     .journal-container h2 {
@@ -376,49 +438,61 @@
     }
 
     .fa-check-circle {
-        color: #136f7c;
+        color: var(--sec-accent);
+    }
+
+    .dark .fa-check-circle {
+        color: var(--sec-main);
     }
 
     .fa-times-circle {
-        color: #011d28;
+        color: var(--text);
     }
 
     .fa-minus-circle {
-        color: #ffc31f;
+        color: var(--accent);
     }
 
     .status2 .fa-check-circle {
-        color: #136f7c;
+        color: var(--sec-accent);
         font-size: 24px;
         margin-top: 10px;
     }
 
+    .dark .status2 .fa-check-circle {
+        color: var(--sec-main);
+    }
+
     .status2 .fa-times-circle {
-        color: #011d28;
+        color: var(--text);
         font-size: 24px;
         margin-top: 10px;
     }
 
     .status2 .fa-minus-circle {
-        color: #ffc31f;
+        color: var(--accent);
         font-size: 24px;
         margin-top: 10px;
         /* border-radius: 50%;
-        background-color: #011d28; */
+        background-color: var(--text); */
     }
 
     .dotw .fa-check-circle:hover {
-        color: #011d28;
+        color: var(--text);
     }
 
     .dotw .fa-times-circle:hover {
-        color: #ffc31f;
+        color: var(--accent);
         /* border-radius: 50%;
-        background-color: #011d28; */
+        background-color: var(--text); */
     }
 
     .dotw .fa-minus-circle:hover {
-        color: #136f7c;
+        color: var(--sec-accent);
+    }
+
+    .dark .dotw .fa-minus-circle:hover {
+        color: var(--sec-main);
     }
 
     .habit-list {
@@ -433,7 +507,7 @@
     }
 
     .habit-list-item:not(:last-child) {
-        border-bottom: .5px solid #136F7C;
+        border-bottom: .5px solid var(--sec-accent);
     }
 
     .week {
@@ -449,6 +523,10 @@
         padding: 3px;
     }
 
+    .dotw div span {
+        font-size: 20px;
+    }
+
     .habit-list-item-name {
         display: flex;
         justify-content: space-between;
@@ -462,7 +540,7 @@
     }
 
     .dotw:nth-child(odd) {
-        background-color: hsl(182, 25%, 90%);
+        background-color: var(--back);
     }
 
     /* Habit Edit */
@@ -490,7 +568,7 @@
     }
 
     .habit-edit .habit-list-item-name:nth-child(odd) {
-        background-color: hsl(182, 25%, 90%);
+        background-color: var(--sec-main);
     }
 
 /********* TO-DO LIST *********/
@@ -526,7 +604,7 @@
 }
 
 .todo-list-item:nth-child(odd) {
-    background-color: hsl(182, 25%, 90%);
+    background-color: var(--back);
 }
 
 .todo-list-item-name {
@@ -545,11 +623,11 @@
 }
 
 .event:nth-child(odd){
-    background-color: hsl(182, 25%, 90%);
+    background-color: var(--back);
 }
 
 .event h2 {
-    background-color: #b3d0d1;
+    background-color: var(--back);
     padding: 10px;
 }
 
@@ -571,11 +649,55 @@ a.agenda-btn {
 }
 
 a.current {
-    color: #fefefa;
+    color: var(--text);
     background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
     -webkit-text-stroke-width: initial;
 }
 
+body.dark a.current {
+    color: var(--main);
+    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=B3D0D1);
+}
+
 .message {
     text-align: center;
+}
+
+/* TOGGLE */
+.toggle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: var(--sec-main);
+    padding: 10px;
+}
+
+body.dark .toggle {
+    background-color: var(--sec-accent);
+}
+
+.toggle-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.toggle-label {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    /* transition: all 0.3s ease; */
+}
+
+.toggle-label:hover {
+    filter: drop-shadow(3px 3px var(--accent));
+}
+
+/* .toggle-label:active {
+    transform: scale(0.95);
+} */
+
+.toggle-icon {
+    width: 50px;
 }

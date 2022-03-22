@@ -1,3 +1,4 @@
+/********* NAVIGATION *********/
 .navbar li {
     list-style: none;
 }
@@ -23,7 +24,7 @@
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: #011D28;
+    background-color: var(--text);
 }
 
 .navmenu {
@@ -38,12 +39,11 @@
 }
 
 .nav-link {
-    color: #011D28;
+    color: var(--text);
 }
 
 .nav-link:hover {
-    color: #136F7C;
-    -webkit-text-stroke-width: 1.2px;
+    color: var(--sec-accent);
 }
 
 @media only screen and (max-width: 780px) {
@@ -74,7 +74,7 @@
     }
 
     .nav-link, button {
-        color: #fefefa;
+        color: var(--main);
     }
 
     .navmenu {
@@ -82,7 +82,7 @@
         left: -100%;
         top: 100px;
         flex-direction: column;
-        background-color: #136F7C;
+        background-color: var(--sec-accent);
         width: 50%;
         text-align: center;
         transition: 0.3s;
@@ -111,29 +111,39 @@
 
     .hamburger.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
-        background-color:#fefefa;
+        background-color:var(--main);
     }
 
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
-        background-color:#fefefa;
+        background-color:var(--main);
     }
 
     .nav-link:hover, 
     button.nav-link:hover,
     .nav-item a.current:hover {
-        color: #011D28;
+        color: var(--text);
         background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fefefa);
         text-decoration: none;
         padding: 10px;
-        -webkit-text-stroke-width: 1.2px;
+    }
+
+    body.dark .nav-link:hover, 
+    body.dark button.nav-link:hover,
+    body.dark .nav-item a.current:hover {
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=011D28);
     }
 
     .nav-item a.current {
-        color: #011D28;
+        color: var(--text);
         background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=b3d0d1);
         -webkit-text-stroke-width: initial;
         padding: 10px;
+    }
+
+    body.dark .nav-item a.current {
+        background: none;
+        text-decoration: underline;
     }
 
 }
