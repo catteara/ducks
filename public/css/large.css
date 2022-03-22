@@ -1,5 +1,4 @@
 @media only screen and (min-width: 780px) {
-
 /********* BASIC SETUP *********/
 
     header, 
@@ -8,7 +7,7 @@
     }
 
     .header {
-        background-color: #b3d0d1;
+        background-color: var(--sec-main);
         height: 200px;
         margin: 0;
     }
@@ -65,7 +64,7 @@
     .title-container p, 
     a.nav-link, 
     button.nav-link {
-        color: #011d28;
+        color: var(--text);
     }
 
     a.nav-link, 
@@ -78,6 +77,14 @@
     button.nav-link:hover {
         background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fefefa);
         opacity: 80%;
+    }
+
+    body.dark a.nav-link:hover, 
+    body.dark button.nav-link:hover {
+        color: var(--text);
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=011D28);
+        opacity: 80%;
+        -webkit-text-stroke-width: initial;
     }
 
     .btn {
@@ -121,7 +128,7 @@
     }
 
     footer p a img:hover {
-        filter:  drop-shadow(3px 3px #ffc31f);
+        filter:  drop-shadow(3px 3px var(--accent));
     }
 
 /********* HOME PAGE *********/
@@ -175,7 +182,7 @@
     .key div {
         margin-top: 0;
         padding: 5px;
-        width: 125px;
+        width: 130px;
     }
 
     .habit-list-item {
@@ -208,7 +215,7 @@
     .journal-container a,
     .journal-container div {
         display: block;
-        width: 350px;
+        width: 360px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -229,7 +236,7 @@
 }
 
 a.current {
-    color: #fefefa;
+    color: var(--main);
     background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
     -webkit-text-stroke-width: initial;
 }
