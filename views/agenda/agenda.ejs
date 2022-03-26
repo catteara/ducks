@@ -1,9 +1,9 @@
 <h1>Agenda</h1>
-
 <a href='/agenda/new' class="button agenda-btn">New Event</a>
+<input id="searchbar" type="text" onkeyup="search_agenda()" name="search" placeholder="Search Events...">
 
 <% agenda.forEach(agenda => { %>
-    <div class='event'>
+    <div class='event searching'>
         <h2><%= agenda.day %></h2>
         <div>
             <h3><%= agenda.title %></h3>
@@ -25,3 +25,20 @@
         </div>
     </div>
 <%})%>
+
+<script>
+    function search_agenda() {
+    let input = document.getElementById('searchbar').value
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('searching');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";                 
+        }
+    }
+}
+</script>

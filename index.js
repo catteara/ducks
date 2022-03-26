@@ -85,6 +85,7 @@ app.use(errorController.get404)
 
 // Set up Database
 const mongoose = require('mongoose');
+const req = require('express/lib/request');
 const MONGODB_URL = process.env.MONGODB_URL || process.env.MONGODB_URI;
 mongoose
   .connect(MONGODB_URL)

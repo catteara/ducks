@@ -233,10 +233,12 @@
     .day-view {
         margin: auto 40px;
     }
+
+    a.current {
+        color: var(--main);
+        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
+        -webkit-text-stroke-width: initial;
+    }
 }
 
-a.current {
-    color: var(--main);
-    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
-    -webkit-text-stroke-width: initial;
-}
+
