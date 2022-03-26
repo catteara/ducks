@@ -1,7 +1,6 @@
 @media only screen and (min-width: 780px) {
-/********* BASIC SETUP *********/
 
-    header, 
+    header,
     main {
         margin: 5px 20px;
     }
@@ -61,25 +60,25 @@
         margin-right: 5%;
     }
 
-    .title-container p, 
-    a.nav-link, 
+    .title-container p,
+    a.nav-link,
     button.nav-link {
         color: var(--text);
     }
 
-    a.nav-link, 
+    a.nav-link,
     button.nav-link {
         padding: 10px 20px;
         width: 100%;
     }
 
-    a.nav-link:hover, 
+    a.nav-link:hover,
     button.nav-link:hover {
         background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fefefa);
         opacity: 80%;
     }
 
-    body.dark a.nav-link:hover, 
+    body.dark a.nav-link:hover,
     body.dark button.nav-link:hover {
         color: var(--text);
         background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=011D28);
@@ -95,18 +94,16 @@
         font-size: 200%;
         max-width: 800px;
     }
-    
+
     hr {
         margin-top: 3px;
     }
-
-   /* Footer */
 
     footer {
         margin: 0 5% 10px 5%;
     }
 
-    footer p, 
+    footer p,
     footer p span {
         display: flex;
         align-items: center;
@@ -128,10 +125,8 @@
     }
 
     footer p a img:hover {
-        filter:  drop-shadow(3px 3px var(--accent));
+        filter: drop-shadow(3px 3px var(--accent));
     }
-
-/********* HOME PAGE *********/
 
     .thumbnail-container {
         width: 100%;
@@ -139,7 +134,7 @@
         gap: 0 20px;
     }
 
-    .thumbnail { 
+    .thumbnail {
         width: 100%;
         max-width: 180px;
         margin-bottom: 20px;
@@ -149,14 +144,13 @@
         width: 100%;
     }
 
-/********* FORM *********/
-
-    .form, .form input, .form textarea, .form div {
+    .form,
+    .form input,
+    .form textarea,
+    .form div {
         width: 400px;
         max-width: 400px;
     }
-
-/********* HABIT TRACKER *********/
 
     .week {
         display: inline-flex;
@@ -193,8 +187,6 @@
         margin-left: 20px;
     }
 
-    /********* JOURNAL *********/
-
     .journal {
         display: flex;
         flex-wrap: wrap;
@@ -209,7 +201,7 @@
         text-align: center;
     }
 
-    .journal-container h2, 
+    .journal-container h2,
     .journal-container h3,
     .journal-container p,
     .journal-container a,
@@ -221,10 +213,8 @@
     }
 
     .journal-container p {
-        margin-bottom: 12px; 
+        margin-bottom: 12px;
     }
-
-    /********* AGENDA *********/
 
     .event {
         margin-bottom: 20px;
@@ -240,5 +230,3 @@
         -webkit-text-stroke-width: initial;
     }
 }
-
-

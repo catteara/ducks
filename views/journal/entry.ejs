@@ -2,15 +2,12 @@
     <h1><%= journal.title %></h1>
     <h2><%= journal.date.toLocaleDateString() %></h2>
     <a href="/journal">All Entries</a>
-        <p><%= journal.text.substring(0) %></p>
-        <!-- <% if (!journal.image == '') { %>
-            <img class="upload" src="/images/uploads/<%= journal.image %>" alt="User Uploaded Image">
-        <% } %> -->
-        <div>
-            <a href="/journal/edit/<%= journal._id %>" class="edit">&#9998;</a>
-            <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="remove">&#10006;</button>
-                <input type="hidden" name="_method" value="DELETE">
-            </form>
-        </div>
+    <p><%= journal.text.substring(0) %></p>
+    <div>
+        <a href="/journal/edit/<%= journal._id %>" class="edit">&#9998;</a>
+        <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="remove">&#10006;</button>
+            <input type="hidden" name="_method" value="DELETE">
+        </form>
+    </div>
 </div>

@@ -4,35 +4,34 @@
 
 <div class="journal">
     <% journal.forEach(journal => { %>
-        <div class="journal-container searching">
-            <h2><%= journal.title %></h2>
-            <h3><%= journal.date.toLocaleDateString() %></h3>
-            <p class="journal-text"><%= journal.text %>
-                <a href="journal/<%= journal._id %>"><br>Read More</a>
-            </p>
-            <div>
-                <a href="/journal/edit/<%= journal._id %>" class="edit">&#9998;</a>
-                <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="remove">&#10006;</button>
-                    <input type="hidden" name="_method" value="DELETE">
-                </form>
-            </div>
+    <div class="journal-container searching">
+        <h2><%= journal.title %></h2>
+        <h3><%= journal.date.toLocaleDateString() %></h3>
+        <p class="journal-text"><%= journal.text %>
+            <a href="journal/<%= journal._id %>"><br>Read More</a>
+        </p>
+        <div>
+            <a href="/journal/edit/<%= journal._id %>" class="edit">&#9998;</a>
+            <form action="/journal/<%= journal._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="remove">&#10006;</button>
+                <input type="hidden" name="_method" value="DELETE">
+            </form>
         </div>
+    </div>
     <% }) %>
 </div>
 <script>
     function search_journal() {
-    let input = document.getElementById('searchbar').value
-    input = input.toLowerCase();
-    let x = document.getElementsByClassName('searching');
-      
-    for (i = 0; i < x.length; i++) { 
-        if (!x[i].innerHTML.toLowerCase().includes(input)) {
-            x[i].style.display="none";
-        }
-        else {
-            x[i].style.display="list-item";                 
+        let input = document.getElementById('searchbar').value
+        input = input.toLowerCase();
+        let x = document.getElementsByClassName('searching');
+
+        for (i = 0; i < x.length; i++) {
+            if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                x[i].style.display = "none";
+            } else {
+                x[i].style.display = "list-item";
+            }
         }
     }
-}
 </script>

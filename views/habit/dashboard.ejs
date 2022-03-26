@@ -14,7 +14,7 @@
       <div><i class="fas fa-minus-circle"></i>
         Unmarked</div>
     </div>
-</div>
+  </div>
   <ul class="habit-list text-center">
     <% habits.forEach(details => { %>
     <li class="habit-list-item">
@@ -23,7 +23,7 @@
         <div class="icons">
           <a href="/habit/edit/<%= details._id %>" class="edit">&#9998;</a>
           <a href="/habit/remove/<%= details._id %>" class="remove">&#10006;</a></div>
-        </div>
+      </div>
       <div class="week">
         <% days.forEach(day => { let found = false, status = '';
             details.dates.find(function (item, index) {

@@ -4,23 +4,31 @@ const isAuth = require('../middleware/is-auth')
 const Todo = require("../models/todo");
 
 router.get('/', isAuth, (req, res) => {
-    Todo.find({userId: req.user._id}, (err, tasks) =>
+    Todo.find({
+            userId: req.user._id
+        }, (err, tasks) =>
         res.render('todo/todo', {
             pageTitle: 'To Do List',
             todo: tasks
         })
-    ).sort({ content: 'asc'})
+    ).sort({
+        content: 'asc'
+    })
 });
 
 router.get('/edit/:id', isAuth, (req, res) => {
     const id = req.params.id
-    Todo.find({userId: req.user._id}, (err, tasks) => {
+    Todo.find({
+        userId: req.user._id
+    }, (err, tasks) => {
         res.render("todo/edit", {
-            todo: tasks, 
-            idTask: id, 
+            todo: tasks,
+            idTask: id,
             pageTitle: 'Edit Entry'
         })
-    }).sort({ content: 'asc'})
+    }).sort({
+        content: 'asc'
+    })
 });
 
 router.post('/', async (req, res) => {
@@ -38,7 +46,9 @@ router.post('/', async (req, res) => {
 
 router.post('/edit/:id', (req, res) => {
     const id = req.params.id
-    Todo.findByIdAndUpdate(id, { content: req.body.content }, err => {
+    Todo.findByIdAndUpdate(id, {
+        content: req.body.content
+    }, err => {
         if (err) return res.send(500, err)
         res.redirect("/todo")
     })

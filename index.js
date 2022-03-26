@@ -18,25 +18,27 @@ const store = new MongoDBDucks({
 });
 
 const corsOptions = {
-    origin: "https://ducks-in-a-row.herokuapp.com/", 
-    optionsSuccessStatus: 200
+  origin: "https://ducks-in-a-row.herokuapp.com/",
+  optionsSuccessStatus: 200
 };
 
 const app = express();
 
 app.use(cors(corsOptions));
-app.use(express.urlencoded({ extended: false}))
+app.use(express.urlencoded({
+  extended: false
+}))
 app.use(methodOverride('_method'))
 
-// Set up views to be read with express-js
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts);
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(express.static(path.join(__dirname, 'public')));
-//Start the session
 app.use(
   session({
     secret: 'what the duck duck goose',
@@ -66,7 +68,6 @@ const userRoutes = require('./controllers/auth')
 const indexRoutes = require('./controllers/index')
 const errorController = require('./controllers/error');
 
-// Variables to include with every response
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
   next();
@@ -74,7 +75,6 @@ app.use((req, res, next) => {
 
 app.use(flash());
 
-// Import Necessary Routes
 app.use('/habit', habitRoutes)
 app.use(agendaRoutes)
 app.use('/todo', todoRoutes)
@@ -83,15 +83,17 @@ app.use(userRoutes)
 app.use('/', indexRoutes)
 app.use(errorController.get404)
 
-// Set up Database
 const mongoose = require('mongoose');
 const req = require('express/lib/request');
 const MONGODB_URL = process.env.MONGODB_URL || process.env.MONGODB_URI;
 mongoose
   .connect(MONGODB_URL)
   .then(result => {
-    app.listen(process.env.PORT || 5000, () => {console.log("Listening on Port")});
+    app.listen(process.env.PORT || 5000, () => {
+      console.log("Listening on Port")
+    });
     console.log('Connected to Mongoose');
   })
-  .catch(err => { console.log(err) });
-
+  .catch(err => {
+    console.log(err)
+  });

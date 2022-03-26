@@ -15,13 +15,10 @@ const journalSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    // image: {
-    //     type: String,
-    // },
     userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
 })
 

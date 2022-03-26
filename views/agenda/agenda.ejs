@@ -3,42 +3,41 @@
 <input id="searchbar" type="text" onkeyup="search_agenda()" name="search" placeholder="Search Events...">
 
 <% agenda.forEach(agenda => { %>
-    <div class='event searching'>
-        <h2><%= agenda.day %></h2>
+<div class='event searching'>
+    <h2><%= agenda.day %></h2>
+    <div>
+        <h3><%= agenda.title %></h3>
+        <h4><%= agenda.start %>
+            <% if (agenda.end) { %>
+            -
+            <%= agenda.end %>
+            <% } %></h4>
+        <% if (agenda.details) { %>
+        <p><%= agenda.details %></p>
+        <% } %>
         <div>
-            <h3><%= agenda.title %></h3>
-            <h4><%= agenda.start %> 
-                <% if (agenda.end) { %>
-                    - 
-                    <%= agenda.end %>
-                <% } %></h4>
-                <% if (agenda.details) { %>
-                    <p><%= agenda.details %></p>
-                <% } %>
-            <div>
-                <a href="/agenda/edit/<%= agenda._id %>" class="edit">&#9998;</a>
-                <form action="/agenda/<%= agenda._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="remove">&#10006;</button>
-                    <input type="hidden" name="_method" value="DELETE">
-                </form>
-            </div>  
+            <a href="/agenda/edit/<%= agenda._id %>" class="edit">&#9998;</a>
+            <form action="/agenda/<%= agenda._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="remove">&#10006;</button>
+                <input type="hidden" name="_method" value="DELETE">
+            </form>
         </div>
     </div>
+</div>
 <%})%>
 
 <script>
     function search_agenda() {
-    let input = document.getElementById('searchbar').value
-    input = input.toLowerCase();
-    let x = document.getElementsByClassName('searching');
-      
-    for (i = 0; i < x.length; i++) { 
-        if (!x[i].innerHTML.toLowerCase().includes(input)) {
-            x[i].style.display="none";
-        }
-        else {
-            x[i].style.display="list-item";                 
+        let input = document.getElementById('searchbar').value
+        input = input.toLowerCase();
+        let x = document.getElementsByClassName('searching');
+
+        for (i = 0; i < x.length; i++) {
+            if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                x[i].style.display = "none";
+            } else {
+                x[i].style.display = "list-item";
+            }
         }
     }
-}
 </script>

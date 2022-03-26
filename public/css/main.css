@@ -1,4 +1,3 @@
-/********* VARIABLES *********/
 .light {
     --main: #FEFEFA;
     --sec-main: #B3D0D1;
@@ -17,578 +16,562 @@
     --back: rgb(179, 208, 209, .1);
 }
 
-/********* BASIC SETUP *********/
-    @font-face {
-        font-family: "Simple Sans";
-        src: url("/fonts/Simple Kind Of Girl.ttf");
-    }
-
-    @font-face {
-        font-family: "Better Together";
-        src: url("/fonts/Better Together Demo.ttf");
-    }
-
-    * {
-        color: var(--text);
-    }
-
-    *:not(h1,h2,h3) {
-        font-family: 'Simple Sans', sans-serif;
-        font-size: 24px;
-    }
-
-    body {
-        background-color: var(--main);
-    }
-
-    h4, h5 {
-        margin: 0;
-    }
-
-    input {
-        background-color: var(--main);
-        border-top: 2px solid var(--text);
-        border-left: 2px solid var(--text);
-        border-right: 2px solid var(--sec-accent);
-        border-bottom: 2px solid var(--sec-accent);
-    }
-
-    /* Header */
-    .logo {
-        height: 100px;
-        display: none;
-    }
-
-    body.dark .logo {
-        border-radius: 50%;
-        background-color: rgb(179, 208, 209, 0.4);
-    }
-
-    .logo-title {
-        display: flex;
-        padding-bottom: 10px;
-        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=b3d0d1);
-    }
-
-    body.dark .logo-title {
-        background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
-    }
-
-    .title-container {
-        width: 300px;
-        margin: auto;
-    }
-
-    .title {
-        font-family: 'Better Together', cursive;
-        font-size: 2.7em;
-        font-weight: bold;
-        margin: 0 auto;
-        color: var(--text);
-        width: 250px;
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .title-p {
-        font-size: 34px;
-        margin: 0;
-        margin-top: -25px;
-        padding-left: 5%;
-        color: var(--text);
-        text-align: center;
-    } 
-    
-    /* Body */
-    h1 {
-        font-family: 'Better Together', cursive;
-        font-size: 150%;
-        width: 100%;
-        max-width: 400px;
-        margin: 20px auto;
-        text-align: center;
-    }
-
-    header, 
-    main, 
-    footer {
-        margin: 5px 10px;
-    }
-
-    body {
-        margin: 0;
-    }
-
-    .hr-top {
-        border: none;
-        border-bottom: 2px solid var(--accent);
-        border-top: 2px solid var(--sec-accent);
-        width: 100%;
-        height: 3px;
-    }
-
-    .hr-bottom {
-        border: none;
-        border-top: 2px solid var(--accent);
-        border-bottom: 2px solid var(--sec-accent);
-        width: 100%;
-        height: 3px;
-    }
-
-    a.button {
-        background-color: var(--sec-accent);
-        color: var(--main);
-        border-radius: 5px;
-        padding: 5px 10px;
-        text-decoration: none;
-        width: 90%;
-        max-width: 300px;
-        margin: auto;
-        display: block;
-        text-align: center;
-    }
-
-    .welcome {
-        text-align: center;
-    }
-
-    /* Buttons */
-    button.button {
-        background-color: var(--sec-accent);
-        color: var(--main);
-        border-radius: 5px;
-        padding: 0;
-        text-decoration: none;
-        text-align: center;
-        width: 36px;
-        font-size: 35px;
-    }
-
-    button.btn {
-        margin-top: 10px;
-        background-color: var(--sec-accent);
-        color: var(--main);
-        border-radius: 5px;
-        padding: 5px 10px;
-        text-decoration: none;
-        text-align: center;
-        height: 36px;
-        width: 236px;
-    }
-
-    button.button:hover, 
-    button.btn:hover, 
-    a.button:hover {
-        background-color: var(--text);
-        color: var(--accent);
-    }
-
-    body.dark button.button:hover, 
-    body.dark button.btn:hover, 
-    body.dark a.button:hover {
-        background-color: var(--accent);
-        color: var(--main);
-    }
-
-    .button-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .button-container .save {
-        margin-top: 0;
-        width: 100%;
-    }
-
-    button {
-        background-color: transparent;
-        border: none;
-    }
-
-    .cancel:hover {
-        font-weight: bold;
-    }
-
-    .journal-container .edit, 
-    .journal-container .remove, 
-    .todo-list .edit, 
-    .todo-list .remove,
-    .habit-list-item-name .edit:hover,
-    .habit-list-item-name .remove:hover,
-    .event .edit,
-    .event .remove {
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-    }
-
-    .journal-container .remove:hover, 
-    .journal-container .edit:hover,
-    .todo-list .remove:hover, 
-    .todo-list .edit:hover,
-    .habit-list-item-name .edit:hover,
-    .habit-list-item-name .remove:hover,
-    .event .edit:hover,
-    .event .remove:hover {
-        color: var(--accent);
-        background-color: var(--text);
-        text-decoration: none;
-    }
-
-    body.dark .journal-container .remove:hover, 
-    body.dark .journal-container .edit:hover,
-    body.dark .todo-list .remove:hover, 
-    body.dark .todo-list .edit:hover,
-    body.dark .habit-list-item-name .edit:hover,
-    body.dark .habit-list-item-name .remove:hover,
-    body.dark .event .edit:hover,
-    body.dark .event .remove:hover {
-        background-color: var(--main);
-    }
-
-
-    /* Icons */
-    .edit, 
-    .remove {
-        display: inline-block;
-        text-decoration: none;
-        background-color: transparent;
-        border: none;
-        width: 40px;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        color: var(--text);
-    }
-
-     /* Footer */
-     footer p, footer p span {
-        display: block;
-        text-align: center;
-        margin: 0;
-    }
-
-    footer p img {
-        padding: 2% 4%;
-        height: 50px;
-    }
-
-    .footer-logo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .footer-left span a:hover {
-        text-decoration: none;
-        color: var(--sec-accent);
-    }
-
-/********* FORMS *********/
-    .block, form {
-        display: block;
-    }
-
-    form div {
-        margin-bottom: 5px;
-    }
-
-    .small-form-container {
-        margin: auto;
-        display: flex;
-        justify-content: center;
-    }
-
-    form input {
-        margin-right: 5px;
-        width: 80%;
-        max-width: 236px;
-    }    
-
-    .form {
-        width: 236px;
-        margin: auto; 
-    }
-
-    .form div {
-        width: 236px;
-    }
-
-    .form input, 
-    .form textarea {
-        width: 230px;
-        margin: 0;
-        padding: 2px;
-        background-color: var(--main);
-        border-top: 1px solid var(--text);
-        border-left: 1px solid var(--text);
-        border-right: 1px solid var(--sec-accent);
-        border-bottom: 1px solid var(--sec-accent);
-    }
-
-    body.dark .form input, 
-    body.dark .form textarea {
-        border-top: 1px solid var(--sec-accent);
-        border-left: 1px solid var(--sec-accent);
-        border-right: 1px solid var(--sec-main);
-        border-bottom: 1px solid var(--sec-main);
-    }
-
-    .form textarea {
-        height: 150px;
-    }
-
-/********* HOME PAGE *********/
-
-    .mockup {
-        display: block;
-        width: 90%;
-        max-width: 800px;
-        margin: auto;
-    }
-
-    .thumbnail-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-        width: 100%;
-        gap: 0 5px;
-        max-width: 100%;
-        justify-content: center;
-    }
-
-    .thumbnail {
-        background-color: hsl(182, 25%, 80%); 
-        margin-bottom: 5px;
-        width: 40%;
-        min-width: 115px;
-        max-width: 200px;
-        text-decoration: none;
-        padding: 5px;
-        border: 2px solid transparent;
-    }
-
-    .thumbnail:hover {
-        background-color: var(--sec-main);
-        border: 2px solid var(--sec-accent);
-    }
-
-    body.dark .thumbnail:hover {
-        background-color: var(--sec-accent);
-        border: 2px solid var(--accent);
-    }
-
-    .thumbnail img {
-        display: block;
-        margin: auto;
-        width: 90%;
-        max-width: 300px;
-        padding-top: 15px;
-    }
-
-    .thumbnail p {
-        text-align: center;
-        margin: 0 auto;
-        padding-bottom: 30px;
-    }
-
-    body.dark .thumbnail p {
-        color: var(--main)
-    }
-
-/********* JOURNAL *********/
-    .journal-container {
-        background-color: var(--sec-main);
-        padding: 20px;
-        margin: 20px 20px;
-        overflow-wrap: break-word;
-    }
-
-    .journal-container h1 {
-        font-family: 'Simple Sans', sans-serif;
-    }
-
-    .journal-container h2 {
-        margin: 0px;
-        font-size: 120%;
-    }
-
-    .journal-container h3 {
-        margin: 0px;
-        font-size: 100%;
-    }
-
-    .journal-container form {
-        width: 35px;
-        display: inline-block;
-    }
-
-    .journal-text {
-        width: 100px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis
-    }
-    
-    .upload {
-        width: 100%;
-        max-width: 360px;
-        display: block;
-        margin: 5px auto 10px auto;
-    }
-/********* HABIT TRACKER *********/
-    .key {
-        display: block;
-        width: 280px;
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .key div {        
-        display: block;
-        margin-top: 3px;
-    }
-
-    .fa-check-circle {
-        color: var(--sec-accent);
-    }
-
-    .dark .fa-check-circle {
-        color: var(--sec-main);
-    }
-
-    .fa-times-circle {
-        color: var(--text);
-    }
-
-    .fa-minus-circle {
-        color: var(--accent);
-    }
-
-    .status2 .fa-check-circle {
-        color: var(--sec-accent);
-        font-size: 24px;
-        margin-top: 10px;
-    }
-
-    .dark .status2 .fa-check-circle {
-        color: var(--sec-main);
-    }
-
-    .status2 .fa-times-circle {
-        color: var(--text);
-        font-size: 24px;
-        margin-top: 10px;
-    }
-
-    .status2 .fa-minus-circle {
-        color: var(--accent);
-        font-size: 24px;
-        margin-top: 10px;
-        /* border-radius: 50%;
-        background-color: var(--text); */
-    }
-
-    .dotw .fa-check-circle:hover {
-        color: var(--text);
-    }
-
-    .dotw .fa-times-circle:hover {
-        color: var(--accent);
-        /* border-radius: 50%;
-        background-color: var(--text); */
-    }
-
-    .dotw .fa-minus-circle:hover {
-        color: var(--sec-accent);
-    }
-
-    .dark .dotw .fa-minus-circle:hover {
-        color: var(--sec-main);
-    }
-
-    .habit-list {
-        padding: 0px;
-    }
-
-    .habit-list-item {
-        display: block;
-        gap: 5px;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .habit-list-item:not(:last-child) {
-        border-bottom: .5px solid var(--sec-accent);
-    }
-
-    .week {
-        display: block;
-        width: 90%;
-        max-width: 250px;
-        margin-left: auto;
-        margin-right: auto; 
-        padding-bottom: 10px;
-    }
-
-    .dotw {
-        padding: 3px;
-    }
-
-    .dotw div span {
-        font-size: 20px;
-    }
-
-    .habit-list-item-name {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 90%;
-        max-width: 250px;
-        text-align: left;
-        margin-left: auto;
-        margin-right: auto; 
-        height: 40px;
-    }
-
-    .dotw:nth-child(odd) {
-        background-color: var(--back);
-    }
-
-    /* Habit Edit */
-
-    .habit-edit .habit-list-item form {
-        width: 90%;
-        max-width: 250px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-    }
-
-    .habit-edit .habit-list-item form input {
-        width: 100%;
-        max-width: 246px;
-        margin: 0;
-    }
-
-    .habit-edit .habit-list-item form div {
-        text-align: right;
-    }
-
-    .habit-edit .btn {
-        width: auto;
-    }
-
-    .habit-edit .habit-list-item-name:nth-child(odd) {
-        background-color: var(--sec-main);
-    }
-
-/********* TO-DO LIST *********/
+@font-face {
+    font-family: "Simple Sans";
+    src: url("/fonts/Simple Kind Of Girl.ttf");
+}
+
+@font-face {
+    font-family: "Better Together";
+    src: url("/fonts/Better Together Demo.ttf");
+}
+
+* {
+    color: var(--text);
+}
+
+*:not(h1, h2, h3) {
+    font-family: 'Simple Sans', sans-serif;
+    font-size: 24px;
+}
+
+body {
+    background-color: var(--main);
+}
+
+h4,
+h5 {
+    margin: 0;
+}
+
+input {
+    background-color: var(--main);
+    border-top: 2px solid var(--text);
+    border-left: 2px solid var(--text);
+    border-right: 2px solid var(--sec-accent);
+    border-bottom: 2px solid var(--sec-accent);
+}
+
+.logo {
+    height: 100px;
+    display: none;
+}
+
+body.dark .logo {
+    border-radius: 50%;
+    background-color: rgb(179, 208, 209, 0.4);
+}
+
+.logo-title {
+    display: flex;
+    padding-bottom: 10px;
+    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=b3d0d1);
+}
+
+body.dark .logo-title {
+    background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=136F7C);
+}
+
+.title-container {
+    width: 300px;
+    margin: auto;
+}
+
+.title {
+    font-family: 'Better Together', cursive;
+    font-size: 2.7em;
+    font-weight: bold;
+    margin: 0 auto;
+    color: var(--text);
+    width: 250px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.title-p {
+    font-size: 34px;
+    margin: 0;
+    margin-top: -25px;
+    padding-left: 5%;
+    color: var(--text);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Better Together', cursive;
+    font-size: 150%;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+header,
+main,
+footer {
+    margin: 5px 10px;
+}
+
+body {
+    margin: 0;
+}
+
+.hr-top {
+    border: none;
+    border-bottom: 2px solid var(--accent);
+    border-top: 2px solid var(--sec-accent);
+    width: 100%;
+    height: 3px;
+}
+
+.hr-bottom {
+    border: none;
+    border-top: 2px solid var(--accent);
+    border-bottom: 2px solid var(--sec-accent);
+    width: 100%;
+    height: 3px;
+}
+
+a.button {
+    background-color: var(--sec-accent);
+    color: var(--main);
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    width: 90%;
+    max-width: 300px;
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.welcome {
+    text-align: center;
+}
+
+button.button {
+    background-color: var(--sec-accent);
+    color: var(--main);
+    border-radius: 5px;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    width: 36px;
+    font-size: 35px;
+}
+
+button.btn {
+    margin-top: 10px;
+    background-color: var(--sec-accent);
+    color: var(--main);
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-align: center;
+    height: 36px;
+    width: 236px;
+}
+
+button.button:hover,
+button.btn:hover,
+a.button:hover {
+    background-color: var(--text);
+    color: var(--accent);
+}
+
+body.dark button.button:hover,
+body.dark button.btn:hover,
+body.dark a.button:hover {
+    background-color: var(--accent);
+    color: var(--main);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.button-container .save {
+    margin-top: 0;
+    width: 100%;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.cancel:hover {
+    font-weight: bold;
+}
+
+.journal-container .edit,
+.journal-container .remove,
+.todo-list .edit,
+.todo-list .remove,
+.habit-list-item-name .edit:hover,
+.habit-list-item-name .remove:hover,
+.event .edit,
+.event .remove {
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.journal-container .remove:hover,
+.journal-container .edit:hover,
+.todo-list .remove:hover,
+.todo-list .edit:hover,
+.habit-list-item-name .edit:hover,
+.habit-list-item-name .remove:hover,
+.event .edit:hover,
+.event .remove:hover {
+    color: var(--accent);
+    background-color: var(--text);
+    text-decoration: none;
+}
+
+body.dark .journal-container .remove:hover,
+body.dark .journal-container .edit:hover,
+body.dark .todo-list .remove:hover,
+body.dark .todo-list .edit:hover,
+body.dark .habit-list-item-name .edit:hover,
+body.dark .habit-list-item-name .remove:hover,
+body.dark .event .edit:hover,
+body.dark .event .remove:hover {
+    background-color: var(--main);
+}
+
+.edit,
+.remove {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: var(--text);
+}
+
+footer p,
+footer p span {
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+
+footer p img {
+    padding: 2% 4%;
+    height: 50px;
+}
+
+.footer-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.footer-left span a:hover {
+    text-decoration: none;
+    color: var(--sec-accent);
+}
+
+.block,
+form {
+    display: block;
+}
+
+form div {
+    margin-bottom: 5px;
+}
+
+.small-form-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+form input {
+    margin-right: 5px;
+    width: 80%;
+    max-width: 236px;
+}
+
+.form {
+    width: 236px;
+    margin: auto;
+}
+
+.form div {
+    width: 236px;
+}
+
+.form input,
+.form textarea {
+    width: 230px;
+    margin: 0;
+    padding: 2px;
+    background-color: var(--main);
+    border-top: 1px solid var(--text);
+    border-left: 1px solid var(--text);
+    border-right: 1px solid var(--sec-accent);
+    border-bottom: 1px solid var(--sec-accent);
+}
+
+body.dark .form input,
+body.dark .form textarea {
+    border-top: 1px solid var(--sec-accent);
+    border-left: 1px solid var(--sec-accent);
+    border-right: 1px solid var(--sec-main);
+    border-bottom: 1px solid var(--sec-main);
+}
+
+.form textarea {
+    height: 150px;
+}
+
+.mockup {
+    display: block;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    width: 100%;
+    gap: 0 5px;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.thumbnail {
+    background-color: hsl(182, 25%, 80%);
+    margin-bottom: 5px;
+    width: 40%;
+    min-width: 115px;
+    max-width: 200px;
+    text-decoration: none;
+    padding: 5px;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    background-color: var(--sec-main);
+    border: 2px solid var(--sec-accent);
+}
+
+body.dark .thumbnail:hover {
+    background-color: var(--sec-accent);
+    border: 2px solid var(--accent);
+}
+
+.thumbnail img {
+    display: block;
+    margin: auto;
+    width: 90%;
+    max-width: 300px;
+    padding-top: 15px;
+}
+
+.thumbnail p {
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+body.dark .thumbnail p {
+    color: var(--main)
+}
+
+.journal-container {
+    background-color: var(--sec-main);
+    padding: 20px;
+    margin: 20px 20px;
+    overflow-wrap: break-word;
+}
+
+.journal-container h1 {
+    font-family: 'Simple Sans', sans-serif;
+}
+
+.journal-container h2 {
+    margin: 0px;
+    font-size: 120%;
+}
+
+.journal-container h3 {
+    margin: 0px;
+    font-size: 100%;
+}
+
+.journal-container form {
+    width: 35px;
+    display: inline-block;
+}
+
+.journal-text {
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.upload {
+    width: 100%;
+    max-width: 360px;
+    display: block;
+    margin: 5px auto 10px auto;
+}
+
+.key {
+    display: block;
+    width: 280px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.key div {
+    display: block;
+    margin-top: 3px;
+}
+
+.fa-check-circle {
+    color: var(--sec-accent);
+}
+
+.dark .fa-check-circle {
+    color: var(--sec-main);
+}
+
+.fa-times-circle {
+    color: var(--text);
+}
+
+.fa-minus-circle {
+    color: var(--accent);
+}
+
+.status2 .fa-check-circle {
+    color: var(--sec-accent);
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.dark .status2 .fa-check-circle {
+    color: var(--sec-main);
+}
+
+.status2 .fa-times-circle {
+    color: var(--text);
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.status2 .fa-minus-circle {
+    color: var(--accent);
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.dotw .fa-check-circle:hover {
+    color: var(--text);
+}
+
+.dotw .fa-times-circle:hover {
+    color: var(--accent);
+}
+
+.dotw .fa-minus-circle:hover {
+    color: var(--sec-accent);
+}
+
+.dark .dotw .fa-minus-circle:hover {
+    color: var(--sec-main);
+}
+
+.habit-list {
+    padding: 0px;
+}
+
+.habit-list-item {
+    display: block;
+    gap: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.habit-list-item:not(:last-child) {
+    border-bottom: .5px solid var(--sec-accent);
+}
+
+.week {
+    display: block;
+    width: 90%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
+.dotw {
+    padding: 3px;
+}
+
+.dotw div span {
+    font-size: 20px;
+}
+
+.habit-list-item-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 250px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+}
+
+.dotw:nth-child(odd) {
+    background-color: var(--back);
+}
+
+.habit-edit .habit-list-item form {
+    width: 90%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.habit-edit .habit-list-item form input {
+    width: 100%;
+    max-width: 246px;
+    margin: 0;
+}
+
+.habit-edit .habit-list-item form div {
+    text-align: right;
+}
+
+.habit-edit .btn {
+    width: auto;
+}
+
+.habit-edit .habit-list-item-name:nth-child(odd) {
+    background-color: var(--sec-main);
+}
 
 .todo-list {
     padding: 0;
@@ -632,14 +615,12 @@
     text-align: right;
 }
 
-/********* AGENDA *********/
-
 .event {
     padding: 10px 20px;
     margin-top: 5px;
 }
 
-.event:nth-child(odd){
+.event:nth-child(odd) {
     background-color: var(--back);
 }
 
@@ -648,7 +629,9 @@
     padding: 10px;
 }
 
-.event h2, .event h3, .event p {
+.event h2,
+.event h3,
+.event p {
     margin: 2px;
 }
 
@@ -680,7 +663,6 @@ body.dark a.current {
     text-align: center;
 }
 
-/* TOGGLE */
 .toggle {
     position: relative;
     display: flex;
@@ -704,22 +686,15 @@ body.dark .toggle {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    /* transition: all 0.3s ease; */
 }
 
 .toggle-label:hover {
     filter: drop-shadow(3px 3px var(--accent));
 }
 
-/* .toggle-label:active {
-    transform: scale(0.95);
-} */
-
 .toggle-icon {
     width: 50px;
 }
-
-/* SEARCH BAR */
 
 .page-nav {
     display: block;

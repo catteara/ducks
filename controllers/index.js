@@ -1,13 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const Contact = require('../models/contact')
-const { name, email, subject, message } = require('process');
+const {
+    name,
+    email,
+    subject,
+    message
+} = require('process');
 
 router.get('/', (req, res) => {
     res.render('index', {
         pageTitle: 'Home'
     })
 })
+
+router.get('/thanks', (req, res) => {
+    res.render('thanks', {
+        pageTitle: 'Home'
+    })
+})
+
 
 router.get('/contact', (req, res) => {
     res.render('contact', {
@@ -24,13 +36,13 @@ router.post('/contact', async (req, res) => {
         message: message
     })
     let contact = req.contact
-        contact.name = req.body.name
-        contact.email = req.body.email
-        contact.subject = req.body.subject
-        contact.message = req.body.message
+    contact.name = req.body.name
+    contact.email = req.body.email
+    contact.subject = req.body.subject
+    contact.message = req.body.message
     try {
         await contact.save()
-        res.redirect('/contact')
+        res.redirect('/thanks')
     } catch (err) {
         res.redirect('/contact')
     }
